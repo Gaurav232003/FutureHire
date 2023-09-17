@@ -4,6 +4,7 @@ import 'package:futurehire/internDetails.dart';
 import 'profilePage.dart';
 import 'data.dart';
 import 'internDetails.dart';
+import 'Internships.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -88,10 +89,28 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   height: height * 0.0369,
                 ),
-                Text(
-                  'Internships',
-                  style: TextStyle(
-                      fontSize: height * 0.0246, fontWeight: FontWeight.w600),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Internships',
+                      style: TextStyle(
+                          fontSize: height * 0.0246,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Internships()),
+                        );
+                      },
+                      child: Row(
+                        children: [Text('View All'), Icon(Icons.arrow_forward)],
+                      ),
+                    )
+                  ],
                 ),
                 SizedBox(
                   height: height * 0.0184,

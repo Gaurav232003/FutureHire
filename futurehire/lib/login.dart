@@ -17,7 +17,10 @@ class Login extends StatelessWidget {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const LoginSphere(),
+            LoginSphere(
+              text: 'LOGIN',
+              img: 'assets/loginsphere.png',
+            ),
             SizedBox(
               height: height * 0.0264,
             ),

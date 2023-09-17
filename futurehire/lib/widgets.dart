@@ -153,10 +153,8 @@ class LoginPlate2 extends StatelessWidget {
 }
 
 class LoginSphere extends StatelessWidget {
-  const LoginSphere({
-    super.key,
-  });
-
+  LoginSphere({super.key, required this.img, required this.text});
+  String img, text;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -165,7 +163,7 @@ class LoginSphere extends StatelessWidget {
         Container(
           alignment: Alignment.center,
           child: Image.asset(
-            'assets/loginsphere.png',
+            img,
             width: double.infinity,
             fit: BoxFit.cover,
           ),
@@ -173,7 +171,7 @@ class LoginSphere extends StatelessWidget {
         Align(
           alignment: Alignment.center,
           child: Text(
-            'LOGIN',
+            text,
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: height * 0.071,
