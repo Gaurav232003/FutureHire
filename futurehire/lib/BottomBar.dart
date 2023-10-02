@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'homepage.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'chatbot.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({super.key});

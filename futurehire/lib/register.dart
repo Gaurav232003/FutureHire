@@ -11,12 +11,12 @@ class Register extends StatelessWidget {
       home: Scaffold(
         body: SingleChildScrollView(
           child: Container(
-            decoration: BoxDecoration(color: Color(0xFFBCE784)),
+            decoration: BoxDecoration(color: Color(0xFFA3C17C)),
             child: Column(
               children: [
                 Container(
                     padding: EdgeInsets.all(20.0),
-                    decoration: BoxDecoration(color: Color(0xFFbce784)),
+                    decoration: BoxDecoration(color: Color(0xFFA3C17C)),
                     child: const Column(
                       children: [
                         SizedBox(
@@ -33,7 +33,7 @@ class Register extends StatelessWidget {
                         Text(
                           'Please enter your current details accurately in the respective fields given below!!!',
                           style: TextStyle(
-                              fontSize: 20.0, fontWeight: FontWeight.w400),
+                              fontSize: 30.0, fontWeight: FontWeight.w400),
                         )
                       ],
                     )),
@@ -42,8 +42,8 @@ class Register extends StatelessWidget {
                   decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
+                      topLeft: Radius.circular(90),
+                      topRight: Radius.circular(90),
                     ),
                   ),
                   child: Column(
@@ -54,6 +54,9 @@ class Register extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
+                              const SizedBox(
+                                height: 20.0,
+                              ),
                               const Center(
                                   child: Text(
                                 'Enter Your Details',
@@ -309,7 +312,7 @@ class Register extends StatelessWidget {
                               ),
                               ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                      backgroundColor: Color(0xFFbce784)),
+                                      backgroundColor: Color(0xFFA3C17C)),
                                   onPressed: () {},
                                   child: Text(
                                     'Submit',

@@ -156,7 +156,7 @@ class HomePage extends StatelessWidget {
                   height: height * 0.0184,
                 ),
                 Container(
-                  height: height * 0.369,
+                  height: height * 0.4,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.all(8),
@@ -197,7 +197,7 @@ class HomePage extends StatelessWidget {
                   height: height * 0.0184,
                 ),
                 Container(
-                  height: height * 0.2214,
+                  height: height * 0.25,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.all(8),
@@ -303,7 +303,7 @@ class GigBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height * 0.369,
+      height: height * 0.4,
       width: width * 0.5092,
       padding: EdgeInsets.all(height * 0.018),
       decoration: BoxDecoration(

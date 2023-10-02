@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+String ApiKey = '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';
 List<String> skills = [
   'Flutter',
   'Firebase',

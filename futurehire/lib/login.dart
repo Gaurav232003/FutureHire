@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:futurehire/data.dart';
 import 'widgets.dart';
@@ -5,10 +6,12 @@ import 'register.dart';
 import 'homepage.dart';
 import 'data.dart';
 import 'BottomBar.dart';
+import 'functions.dart';
 
 class Login extends StatelessWidget {
-  const Login({super.key});
-
+  Login({super.key});
+  TextEditingController email1 = TextEditingController();
+  TextEditingController pass1 = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -47,13 +50,15 @@ class Login extends StatelessWidget {
               height: height * 0.073,
             ),
             LoginPlateTextField(
+              con: email1,
               icon: Icons.person,
               hintText: 'U S E R N A M E',
             ),
             SizedBox(
               height: height * 0.0246,
             ),
-            LoginPlateTextField(icon: Icons.key, hintText: 'P A S S W O R D'),
+            LoginPlateTextField(
+                con: pass1, icon: Icons.key, hintText: 'P A S S W O R D'),
             SizedBox(
               height: height * 0.0246,
             ),
@@ -61,7 +66,14 @@ class Login extends StatelessWidget {
               padding:
                   EdgeInsets.only(left: width * 0.147, right: width * 0.147),
               child: ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
+                    print(email1.text);
+                    print(pass1.text);
+                    UserCredential userCredential =
+                        await FirebaseAuth.instance.signInWithEmailAndPassword(
+                      email: 'gaurav@dev.in',
+                      password: '12345678',
+                    );
                     Navigator.pushReplacement<void, void>(
                       context,
                       MaterialPageRoute<void>(

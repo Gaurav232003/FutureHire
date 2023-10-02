@@ -243,6 +243,9 @@ class InternDetails extends StatelessWidget {
                               ),
                               child: const Text('S U B M I T')),
                         ),
+                        SizedBox(
+                          height: height * 0.05,
+                        )
                       ],
                     ),
                   ),
