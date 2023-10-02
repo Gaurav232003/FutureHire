@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'homepage.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -58,7 +60,7 @@ class _BottomBarState extends State<BottomBar> {
               ),
               GButton(
                 icon: Icons.edit_note,
-                text: '',
+                text: 'Skills',
               ),
               GButton(
                 icon: Icons.account_circle,

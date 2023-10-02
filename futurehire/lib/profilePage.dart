@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'data.dart';
 import 'editSkills.dart';
@@ -49,6 +51,8 @@ class Profile extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            // Name & E-mail ID :
+
                             Text(
                               'Amartya',
                               style: TextStyle(
@@ -79,6 +83,9 @@ class Profile extends StatelessWidget {
                     SizedBox(
                       height: height * 0.0492,
                     ),
+
+                    //Application Stats :
+
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -125,6 +132,9 @@ class Profile extends StatelessWidget {
                     SizedBox(
                       height: height * 0.0369,
                     ),
+
+                    // Skills container
+
                     Container(
                       padding: EdgeInsets.all(height * 0.0246),
                       decoration: BoxDecoration(
