@@ -138,31 +138,33 @@ class Skills extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
-                height: height * 0.02,
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.black),
-                  fixedSize: MaterialStateProperty.all(
-                    Size(50, 50),
-                  ),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ),
-                child: Text(
-                  'Submit',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-              )
+              // SizedBox(
+              //   height: height * 0.0,
+              // ),
+
+              // //Submit Button
+              // ElevatedButton(
+              //   onPressed: () {},
+              //   style: ButtonStyle(
+              //     backgroundColor: MaterialStateProperty.all(Colors.black),
+              //     fixedSize: MaterialStateProperty.all(
+              //       Size(50, 50),
+              //     ),
+              //     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              //       RoundedRectangleBorder(
+              //         borderRadius: BorderRadius.circular(10),
+              //       ),
+              //     ),
+              //   ),
+              //   child: Text(
+              //     'Submit',
+              //     style: TextStyle(
+              //       color: Colors.white,
+              //       fontWeight: FontWeight.bold,
+              //       fontSize: 20,
+              //     ),
+              //   ),
+              // )
             ],
           ),
         ),
