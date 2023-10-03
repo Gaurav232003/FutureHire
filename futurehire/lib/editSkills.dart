@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'data.dart';
-import 'constants.dart';
+import 'widgets.dart';
 
 class EditSkills extends StatefulWidget {
   const EditSkills({super.key});
