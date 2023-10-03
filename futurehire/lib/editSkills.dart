@@ -19,7 +19,7 @@ class _EditSkillsState extends State<EditSkills> {
       home: Scaffold(
         backgroundColor: Color(0xFFD5E4E2),
         body: Container(
-          padding: EdgeInsets.all(30),
+          padding: EdgeInsets.only(left: 30, right: 30, top: 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [

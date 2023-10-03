@@ -243,6 +243,55 @@ class SkillContainer extends StatelessWidget {
         ),
       ),
       //Inside Element
+      child: Stack(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(20.0), // Adjust padding as needed
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                "Hello",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            right: 0,
+            child: Image.asset(
+              image, // Replace with your image path
+              fit: BoxFit.cover,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/*
+
+class SkillContainer extends StatelessWidget {
+  SkillContainer(
+      {required this.color1,
+      required this.color2,
+      required this.text,
+      required this.image});
+  final Color color1;
+  final Color color2;
+  final String text;
+  final String image;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [color1, color2],
+        ),
+      ),
+      //Inside Element
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -257,7 +306,6 @@ class SkillContainer extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: height * 0.02,
             width: width * 0.03,
           ),
           Padding(
@@ -274,3 +322,6 @@ class SkillContainer extends StatelessWidget {
     );
   }
 }
+
+
+*/
