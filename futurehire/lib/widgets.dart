@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'data.dart';
 
@@ -49,7 +51,10 @@ class LoginPlateTextField extends StatelessWidget {
     return Container(
       height: height * 0.0615,
       margin: EdgeInsets.only(left: width * 0.152, right: width * 0.152),
-      decoration: BoxDecoration(color: Color(0xFFa5a7a6)),
+      decoration: BoxDecoration(
+        color: Color(0xFFa5a7a6),
+        borderRadius: BorderRadius.circular(width * 0.02),
+      ),
       child: Center(
         child: Row(
           children: [
@@ -152,6 +157,7 @@ class LoginPlate2 extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class LoginSphere extends StatelessWidget {
   LoginSphere({super.key, required this.img, required this.text});
   String img, text;
@@ -174,7 +180,7 @@ class LoginSphere extends StatelessWidget {
             text,
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: height * 0.071,
+              fontSize: 50.0,
             ),
           ),
         ),
@@ -222,6 +228,7 @@ class SignInWithGoogle extends StatelessWidget {
   }
 }
 
+//Edit skill container
 class SkillContainer extends StatelessWidget {
   SkillContainer(
       {required this.color1,

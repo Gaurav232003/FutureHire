@@ -1,9 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:futurehire/editSkills.dart';
+import 'package:futurehire/skills.dart';
 import 'homepage.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'chatbot.dart';
+import 'package:futurehire/skills.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({super.key});
@@ -19,9 +22,7 @@ class _BottomBarState extends State<BottomBar> {
 
   final List<Widget> _screens = [
     HomePage(),
-    Scaffold(
-      body: Center(child: Text('Coming Soon')),
-    ),
+    Skills(),
     Scaffold(
       body: Center(child: Text('Coming Soon')),
     ),
@@ -59,16 +60,16 @@ class _BottomBarState extends State<BottomBar> {
                 text: 'Home',
               ),
               GButton(
-                icon: Icons.edit_note,
+                icon: Icons.article,
                 text: 'Skills',
               ),
               GButton(
-                icon: Icons.account_circle,
+                icon: Icons.explore,
                 text: 'Explore',
               ),
               GButton(
-                icon: Icons.smart_toy,
-                text: 'Chat',
+                icon: Icons.notifications_active,
+                text: 'Notice',
               ),
               // GButton(icon: Icons.forum)
             ],

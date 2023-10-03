@@ -1,12 +1,14 @@
+// ignore_for_file: use_build_context_synchronously, must_be_immutable
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:futurehire/data.dart';
 import 'widgets.dart';
 import 'register.dart';
-import 'homepage.dart';
-import 'data.dart';
+// import 'homepage.dart';
+// import 'data.dart';
 import 'BottomBar.dart';
-import 'functions.dart';
+// import 'functions.dart';
 
 class Login extends StatelessWidget {
   Login({super.key});
@@ -49,16 +51,18 @@ class Login extends StatelessWidget {
             SizedBox(
               height: height * 0.073,
             ),
+
+            // Login  and Password
             LoginPlateTextField(
               con: email1,
               icon: Icons.person,
-              hintText: 'U S E R N A M E',
+              hintText: 'Username',
             ),
             SizedBox(
               height: height * 0.0246,
             ),
             LoginPlateTextField(
-                con: pass1, icon: Icons.key, hintText: 'P A S S W O R D'),
+                con: pass1, icon: Icons.key, hintText: 'Password'),
             SizedBox(
               height: height * 0.0246,
             ),
