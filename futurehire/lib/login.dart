@@ -5,10 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:futurehire/data.dart';
 import 'widgets.dart';
 import 'register.dart';
+
 // import 'homepage.dart';
 // import 'data.dart';
 import 'BottomBar.dart';
-// import 'functions.dart';
+import 'functions.dart';
 
 class Login extends StatelessWidget {
   Login({super.key});
@@ -75,9 +76,10 @@ class Login extends StatelessWidget {
                     print(pass1.text);
                     UserCredential userCredential =
                         await FirebaseAuth.instance.signInWithEmailAndPassword(
-                      email: 'gaurav@dev.in',
+                      email: 'gaurav2@dev.in',
                       password: '12345678',
                     );
+                    int x = await fetchSkillsFromDatabase();
                     Navigator.pushReplacement<void, void>(
                       context,
                       MaterialPageRoute<void>(

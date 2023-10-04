@@ -54,13 +54,13 @@ class Profile extends StatelessWidget {
                             // Name & E-mail ID :
 
                             Text(
-                              'Amartya',
+                              name,
                               style: TextStyle(
                                   fontSize: height * 0.0492,
                                   fontWeight: FontWeight.bold),
                             ),
                             Text(
-                              '@amartyakumar',
+                              '@$name',
                               style: TextStyle(
                                   color: Colors.grey,
                                   fontWeight: FontWeight.bold),
@@ -301,7 +301,7 @@ class PersonalDetails extends StatelessWidget {
                 style:
                     TextStyle(color: Colors.white, fontSize: height * 0.0147),
               ),
-              Text('20',
+              Text(age,
                   style: TextStyle(
                       color: Colors.white, fontSize: height * 0.0147)),
               Icon(
