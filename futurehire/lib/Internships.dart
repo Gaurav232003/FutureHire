@@ -60,13 +60,14 @@ class Internships extends StatelessWidget {
                     SizedBox(
                       height: height * 0.05,
                     ),
-                    for (int i = 1; i <= name.length; i++)
+                    for (int i = 1; i <= internships.length; i++)
                       ViewInternshipBox(
-                        role: role[i - 1],
+                        role: internships[i - 1].role,
                         img: 'assets/internship$i.png',
-                        name: name[i - 1],
-                        money: money[i - 1],
-                        location: location[i - 1],
+                        name: internships[i - 1].name,
+                        money: internships[i - 1].stipend,
+                        location: 'Pune, India',
+                        desc: internships[i - 1].about,
                       )
                   ],
                 ),
@@ -86,8 +87,9 @@ class ViewInternshipBox extends StatelessWidget {
       required this.name,
       required this.money,
       required this.location,
-      required this.role});
-  String img, name, money, location, role;
+      required this.role,
+      required this.desc});
+  String img, name, money, location, role, desc;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -96,7 +98,13 @@ class ViewInternshipBox extends StatelessWidget {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => InternDetails()),
+              MaterialPageRoute(
+                  builder: (context) => InternDetails(
+                      name: name,
+                      money: money,
+                      location: location,
+                      role: role,
+                      decs: desc)),
             );
           },
           child: Container(

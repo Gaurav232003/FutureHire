@@ -3,7 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:futurehire/data.dart';
 
 class InternDetails extends StatelessWidget {
-  InternDetails({super.key});
+  InternDetails(
+      {super.key,
+      required this.name,
+      required this.money,
+      required this.location,
+      required this.role,
+      required this.decs});
+  String name, money, location, role, decs;
 
   List<String> req = [
     'Lörem ipsum klicktivism multin om än lud i erade. Fisör sokobelt trimäbel.',
@@ -39,7 +46,7 @@ class InternDetails extends StatelessWidget {
                             padding: EdgeInsets.only(left: 10.0),
                             width: 200, // Adjust the width as per your needs.
                             child: Text(
-                              "Google Digital marketing",
+                              role,
                               style: TextStyle(
                                   fontSize: 30.0, fontWeight: FontWeight.bold),
                               maxLines: 2,
@@ -130,8 +137,7 @@ class InternDetails extends StatelessWidget {
                         SizedBox(
                           height: height * 0.03,
                         ),
-                        Text(
-                            'Lörem ipsum klicktivism multin om än lud i erade. Fisör sokobelt trimäbel. Vandrande skolbuss hypohossade nyfyr trarysade ultranera, är bere prere. Mikron grit vin. Mir kur all räde. Antir askbränd autol än hypoliga rärytan delningsekonomi i swishjournalist även om tevis. Promär dir bipävis, är pärlifiera intravanade fina. '),
+                        Text(decs),
                         SizedBox(
                           height: height * 0.05,
                         ),
@@ -189,7 +195,7 @@ class InternDetails extends StatelessWidget {
                               width: width * 0.05,
                             ),
                             Text(
-                              'Rs. 1,50,000',
+                              'Rs.$money',
                               style: TextStyle(
                                   fontSize: 16.0, fontWeight: FontWeight.w500),
                             ),
@@ -205,7 +211,7 @@ class InternDetails extends StatelessWidget {
                               width: width * 0.05,
                             ),
                             Text(
-                              'Banglore',
+                              location,
                               style: TextStyle(
                                   fontSize: 16.0, fontWeight: FontWeight.w500),
                             ),

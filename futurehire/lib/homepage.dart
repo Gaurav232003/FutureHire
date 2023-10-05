@@ -127,6 +127,7 @@ class HomePage extends StatelessWidget {
                             GestureDetector(
                               onTap: () {},
                               child: JobBox(
+                                desc: internships[i].about,
                                 role: internships[i].role,
                                 company: internships[i].name,
                                 money: internships[i].stipend,
@@ -429,15 +430,22 @@ class JobBox extends StatelessWidget {
       required this.company,
       required this.money,
       required this.location,
-      required this.colour});
-  final role, company, money, location, colour;
+      required this.colour,
+      required this.desc});
+  final role, company, money, location, colour, desc;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => InternDetails()),
+          MaterialPageRoute(
+              builder: (context) => InternDetails(
+                  name: name,
+                  money: money,
+                  location: location,
+                  role: role,
+                  decs: desc)),
         );
       },
       child: Container(
