@@ -121,26 +121,31 @@ class HomePage extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.all(8),
                     children: <Widget>[
-                      GestureDetector(
-                        onTap: () {},
-                        child: JobBox(
-                          role: 'Data Analyst',
-                          company: 'Spotify',
-                          money: '12,00,00',
-                          location: 'Bengaluru,India',
-                          colour: Color(0xFF6ED7A8),
+                      for (int i = 0; i < internships.length; i++)
+                        Row(
+                          children: [
+                            GestureDetector(
+                              onTap: () {},
+                              child: JobBox(
+                                role: internships[i].role,
+                                company: internships[i].name,
+                                money: internships[i].stipend,
+                                location: 'Bengaluru,India',
+                                colour: Color(0xFF6ED7A8),
+                              ),
+                            ),
+                            SizedBox(
+                              width: width * 0.0509,
+                            ),
+                          ],
                         ),
-                      ),
-                      SizedBox(
-                        width: width * 0.0509,
-                      ),
-                      JobBox(
-                        role: 'Web Developer',
-                        company: 'Google',
-                        money: '18,00,00',
-                        location: 'Delhi,India',
-                        colour: Color(0xFFF6CC5B),
-                      ),
+                      // JobBox(
+                      //   role: 'Web Developer',
+                      //   company: 'Google',
+                      //   money: '18,00,00',
+                      //   location: 'Delhi,India',
+                      //   colour: Color(0xFFF6CC5B),
+                      // ),
                     ],
                   ),
                 ),

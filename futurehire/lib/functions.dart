@@ -22,7 +22,7 @@ Future<int> fetchSkillsFromDatabase() async {
   User? user = FirebaseAuth.instance.currentUser;
   String uid = user!.uid.toString();
   final ref = FirebaseDatabase.instance.ref();
-  print('yaha aaya');
+  print('yaha aayaaaa');
   final snapshot = await ref.child('users/$uid').get();
   if (snapshot.exists) {
     Map<dynamic, dynamic> values = snapshot.value as Map<dynamic, dynamic>;
@@ -40,5 +40,31 @@ Future<int> fetchSkillsFromDatabase() async {
   } else {
     print('No data available.');
   }
+  return 0;
+}
+
+Future<int> fetchInternships() async {
+  final ref = FirebaseDatabase.instance.ref();
+  final snapshot2 = await ref.child('count').get();
+  int c = 1;
+  if (snapshot2.exists) {
+    Map<dynamic, dynamic> cc = snapshot2.value as Map<dynamic, dynamic>;
+    c = cc['count'];
+  }
+  for (int i = 1; i <= c; i++) {
+    final snapshot = await ref.child('details/$i').get();
+    if (snapshot.exists) {
+      Map<dynamic, dynamic> values = snapshot.value as Map<dynamic, dynamic>;
+      internships.add(Details(
+          visibility: values['visibility'],
+          role: values['role'],
+          name: values['name'],
+          duration: values['duration'],
+          stipend: values['stipend'],
+          about: values['desc']));
+    }
+  }
+  print(internships);
+  print('ho gaya');
   return 0;
 }

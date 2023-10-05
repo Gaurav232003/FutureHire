@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:futurehire/data.dart';
 import 'widgets.dart';
 import 'register.dart';
-
+import 'blank_screen.dart';
 // import 'homepage.dart';
 // import 'data.dart';
 import 'BottomBar.dart';
@@ -80,12 +80,11 @@ class Login extends StatelessWidget {
                       password: '12345678',
                     );
                     int x = await fetchSkillsFromDatabase();
-                    Navigator.pushReplacement<void, void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => BottomBar(),
-                      ),
-                    );
+                    int y = await fetchInternships();
+                    Navigator.pushReplacement(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (BuildContext context) => BottomBar()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF4CA3B6),

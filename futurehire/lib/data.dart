@@ -19,7 +19,7 @@ class Details {
   bool visibility;
 }
 
-List<Details> explore = [];
+List<Details> internships = [];
 
 List<int> applied = [];
 
