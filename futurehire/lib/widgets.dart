@@ -38,14 +38,18 @@ class LineOrLine extends StatelessWidget {
 }
 
 class LoginPlateTextField extends StatelessWidget {
-  const LoginPlateTextField(
-      {Key? key, required this.icon, required this.hintText, required this.con})
-      : super(key: key);
+  const LoginPlateTextField({
+    Key? key,
+    required this.icon,
+    required this.hintText,
+    // required this.obscuretext
+    required this.con,
+  }) : super(key: key);
 
   final IconData icon;
   final String hintText;
   final con;
-
+  // final bool obscuretext;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -71,6 +75,7 @@ class LoginPlateTextField extends StatelessWidget {
             Expanded(
               child: TextField(
                 controller: con,
+                // obscureText: obscuretext,
                 decoration: InputDecoration(
                   hintText: hintText,
                   border: InputBorder.none,
