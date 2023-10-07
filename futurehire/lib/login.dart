@@ -82,8 +82,8 @@ class Login extends StatelessWidget {
                       UserCredential userCredential = await FirebaseAuth
                           .instance
                           .signInWithEmailAndPassword(
-                        email: email1.text, //'gaurav@dev.com',
-                        password: pass1.text,
+                        email: 'gaurav2@dev.in', //'gaurav@dev.com',
+                        password: '12345678',
                       );
                       int x = await fetchSkillsFromDatabase();
                       int y = await fetchInternships();

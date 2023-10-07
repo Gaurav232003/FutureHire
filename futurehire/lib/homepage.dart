@@ -258,166 +258,186 @@ class InternshipBox extends StatelessWidget {
   final icon, name, role, type, colour;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height * 0.2435,
-      width: width * 0.4481,
-      padding: EdgeInsets.all(height * 0.018),
-      decoration: BoxDecoration(
-          color: colour, borderRadius: BorderRadius.circular(18.0)),
-      child: Column(
-        children: [
-          icon,
-          Text(
-            name,
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          SizedBox(
-            height: height * 0.00615,
-          ),
-          Text(
-            role,
-            style: TextStyle(
-                fontSize: height * 0.0123,
-                fontWeight: FontWeight.bold,
-                color: Colors.black),
-          ),
-          SizedBox(
-            height: height * 0.0098,
-          ),
-          Text(
-            type,
-            style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: height * 0.0135),
-          ),
-        ],
+    return GestureDetector(
+      onTap: () {
+        // navigate to jobs page.. add the details required to go to the info page...
+      },
+      child: Container(
+        height: height * 0.2435,
+        width: width * 0.4481,
+        padding: EdgeInsets.all(height * 0.018),
+        decoration: BoxDecoration(
+            color: colour, borderRadius: BorderRadius.circular(18.0)),
+        child: Column(
+          children: [
+            icon,
+            Text(
+              name,
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: height * 0.00615,
+            ),
+            Text(
+              role,
+              style: TextStyle(
+                  fontSize: height * 0.0123,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
+            ),
+            SizedBox(
+              height: height * 0.0098,
+            ),
+            Text(
+              type,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold, fontSize: height * 0.0135),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
 class GigBox extends StatelessWidget {
-  const GigBox(
-      {super.key,
-      required this.role,
-      required this.company,
-      required this.location,
-      required this.money,
-      required this.time,
-      required this.decs,
-      required this.colour});
+  GigBox({
+    super.key,
+    required this.role,
+    required this.company,
+    required this.location,
+    required this.money,
+    required this.time,
+    required this.decs,
+    required this.colour,
+  });
   final role, company, location, money, time, decs, colour;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height * 0.4,
-      width: width * 0.5092,
-      padding: EdgeInsets.all(height * 0.018),
-      decoration: BoxDecoration(
-          color: colour, borderRadius: BorderRadius.circular(15.0)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            role,
-            style: TextStyle(
-                fontSize: height * 0.017, fontWeight: FontWeight.w600),
-          ),
-          SizedBox(
-            height: height * 0.0123,
-          ),
-          Text(
-            company,
-            style: TextStyle(
-                color: Color(0xFF668692),
-                fontSize: height * 0.0196,
-                fontWeight: FontWeight.bold),
-          ),
-          SizedBox(
-            height: height * 0.0098,
-          ),
-          Container(
-            height: 1,
-            color: Colors.black,
-          ),
-          SizedBox(
-            height: height * 0.0246,
-          ),
-          Row(
-            children: [
-              Icon(
-                Icons.location_pin,
-                size: height * 0.018,
-              ),
-              SizedBox(
-                width: 0.0127,
-              ),
-              Text(
-                location,
-                style: TextStyle(
-                    fontSize: height * 0.0147, fontWeight: FontWeight.w600),
-              )
-            ],
-          ),
-          SizedBox(
-            height: height * 0.018,
-          ),
-          Row(
-            children: [
-              Icon(
-                Icons.money,
-                size: height * 0.018,
-              ),
-              SizedBox(
-                width: width * 0.0127,
-              ),
-              Text(
-                '₹$money',
-                style: TextStyle(
-                    fontSize: height * 0.0147, fontWeight: FontWeight.w600),
-              )
-            ],
-          ),
-          SizedBox(
-            height: height * 0.018,
-          ),
-          Row(
-            children: [
-              Icon(
-                Icons.calendar_month,
-                size: height * 0.018,
-              ),
-              SizedBox(
-                width: width * 0.0127,
-              ),
-              Text(
-                time,
-                style: TextStyle(
-                    fontSize: height * 0.0147, fontWeight: FontWeight.w600),
-              )
-            ],
-          ),
-          SizedBox(
-            height: height * 0.018,
-          ),
-          Text(
-            decs,
-            style: TextStyle(
-                fontSize: height * 0.0123, fontWeight: FontWeight.w500),
-          ),
-          SizedBox(
-            height: height * 0.0123,
-          ),
-          Row(
-            children: [
-              Text(
-                'View Details',
-                style: TextStyle(
-                    fontSize: height * 0.0123, fontWeight: FontWeight.bold),
-              ),
-              Icon(Icons.arrow_right_alt)
-            ],
-          )
-        ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => InternDetails(
+                  name: name,
+                  money: money,
+                  location: location,
+                  role: role,
+                  decs: decs)),
+        );
+      },
+      child: Container(
+        height: height * 0.4,
+        width: width * 0.5092,
+        padding: EdgeInsets.all(height * 0.018),
+        decoration: BoxDecoration(
+            color: colour, borderRadius: BorderRadius.circular(15.0)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              role,
+              style: TextStyle(
+                  fontSize: height * 0.017, fontWeight: FontWeight.w600),
+            ),
+            SizedBox(
+              height: height * 0.0123,
+            ),
+            Text(
+              company,
+              style: TextStyle(
+                  color: Color(0xFF668692),
+                  fontSize: height * 0.0196,
+                  fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: height * 0.0098,
+            ),
+            Container(
+              height: 1,
+              color: Colors.black,
+            ),
+            SizedBox(
+              height: height * 0.0246,
+            ),
+            Row(
+              children: [
+                Icon(
+                  Icons.location_pin,
+                  size: height * 0.018,
+                ),
+                SizedBox(
+                  width: 0.0127,
+                ),
+                Text(
+                  location,
+                  style: TextStyle(
+                      fontSize: height * 0.0147, fontWeight: FontWeight.w600),
+                )
+              ],
+            ),
+            SizedBox(
+              height: height * 0.018,
+            ),
+            Row(
+              children: [
+                Icon(
+                  Icons.money,
+                  size: height * 0.018,
+                ),
+                SizedBox(
+                  width: width * 0.0127,
+                ),
+                Text(
+                  '₹$money',
+                  style: TextStyle(
+                      fontSize: height * 0.0147, fontWeight: FontWeight.w600),
+                )
+              ],
+            ),
+            SizedBox(
+              height: height * 0.018,
+            ),
+            Row(
+              children: [
+                Icon(
+                  Icons.calendar_month,
+                  size: height * 0.018,
+                ),
+                SizedBox(
+                  width: width * 0.0127,
+                ),
+                Text(
+                  time,
+                  style: TextStyle(
+                      fontSize: height * 0.0147, fontWeight: FontWeight.w600),
+                )
+              ],
+            ),
+            SizedBox(
+              height: height * 0.018,
+            ),
+            Text(
+              decs,
+              style: TextStyle(
+                  fontSize: height * 0.0123, fontWeight: FontWeight.w500),
+            ),
+            SizedBox(
+              height: height * 0.0123,
+            ),
+            Row(
+              children: [
+                Text(
+                  'View Details',
+                  style: TextStyle(
+                      fontSize: height * 0.0123, fontWeight: FontWeight.bold),
+                ),
+                Icon(Icons.arrow_right_alt)
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
