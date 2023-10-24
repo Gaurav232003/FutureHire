@@ -3,6 +3,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:futurehire/BottomBar.dart';
 import 'data.dart';
+import 'homepage.dart';
 
 void LoginFunction(String email, String pass, BuildContext context) async {
   UserCredential userCredential =
@@ -56,6 +57,7 @@ Future<int> fetchInternships() async {
     if (snapshot.exists) {
       Map<dynamic, dynamic> values = snapshot.value as Map<dynamic, dynamic>;
       internships.add(Details(
+          color: values['color'],
           visibility: values['visibility'],
           role: values['role'],
           name: values['name'],

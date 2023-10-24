@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-String ApiKey = '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';
 List<String> skills = [];
 List<String> allSkills = [];
 String name = '';
 String age = '';
 List<Widget> displaySkills = [];
+List<String> jobBoxColor = [];
 
 class Details {
   Details(
@@ -14,8 +14,10 @@ class Details {
       required this.name,
       required this.duration,
       required this.stipend,
+      required this.color,
       required this.about});
   String role, name, duration, stipend, about;
+  int color;
   bool visibility;
 }
 

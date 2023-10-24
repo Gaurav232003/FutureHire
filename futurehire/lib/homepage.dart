@@ -132,7 +132,7 @@ class HomePage extends StatelessWidget {
                                 company: internships[i].name,
                                 money: internships[i].stipend,
                                 location: 'Bengaluru,India',
-                                colour: Color(0xFF6ED7A8),
+                                colour: Color(internships[i].color),
                               ),
                             ),
                             SizedBox(

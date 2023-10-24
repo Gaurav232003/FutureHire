@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:futurehire/data.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:confetti/confetti.dart';
 
-class InternDetails extends StatelessWidget {
+class InternDetails extends StatefulWidget {
   InternDetails(
       {super.key,
       required this.name,
@@ -12,12 +14,43 @@ class InternDetails extends StatelessWidget {
       required this.decs});
   String name, money, location, role, decs;
 
+  @override
+  State<InternDetails> createState() => _InternDetailsState();
+}
+
+class _InternDetailsState extends State<InternDetails> {
+  late ConfettiController _controller;
+  @override
+  void initState() {
+    super.initState();
+    _controller = ConfettiController(duration: const Duration(seconds: 2));
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _showAlertWithAnimation() {
+    Fluttertoast.showToast(
+      msg: "Applied!",
+      gravity: ToastGravity.CENTER,
+      timeInSecForIosWeb: 1,
+      backgroundColor: Colors.blue,
+      textColor: Colors.white,
+    );
+
+    _controller.play();
+  }
+
   List<String> req = [
     'Lörem ipsum klicktivism multin om än lud i erade. Fisör sokobelt trimäbel.',
     'Lörem ipsum klicktivism multin om än lud i erade. Fisör sokobelt trimäbel.',
     'Lörem ipsum klicktivism multin om än lud i erade. Fisör sokobelt trimäbel.',
     'Lörem ipsum klicktivism multin om än lud i erade. Fisör sokobelt trimäbel.'
   ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -46,7 +79,7 @@ class InternDetails extends StatelessWidget {
                             padding: EdgeInsets.only(left: 10.0),
                             width: 200, // Adjust the width as per your needs.
                             child: Text(
-                              role,
+                              widget.role,
                               style: TextStyle(
                                   fontSize: 30.0, fontWeight: FontWeight.bold),
                               maxLines: 2,
@@ -137,7 +170,7 @@ class InternDetails extends StatelessWidget {
                         SizedBox(
                           height: height * 0.03,
                         ),
-                        Text(decs),
+                        Text(widget.decs),
                         SizedBox(
                           height: height * 0.05,
                         ),
@@ -195,7 +228,7 @@ class InternDetails extends StatelessWidget {
                               width: width * 0.05,
                             ),
                             Text(
-                              'Rs.$money',
+                              'Rs.${widget.money}',
                               style: TextStyle(
                                   fontSize: 16.0, fontWeight: FontWeight.w500),
                             ),
@@ -211,7 +244,7 @@ class InternDetails extends StatelessWidget {
                               width: width * 0.05,
                             ),
                             Text(
-                              location,
+                              widget.location,
                               style: TextStyle(
                                   fontSize: 16.0, fontWeight: FontWeight.w500),
                             ),
@@ -240,7 +273,9 @@ class InternDetails extends StatelessWidget {
                           padding: EdgeInsets.only(
                               left: width * 0.147, right: width * 0.147),
                           child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                _showAlertWithAnimation();
+                              },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xFF4CA3B6),
                                 shape: RoundedRectangleBorder(
@@ -255,7 +290,17 @@ class InternDetails extends StatelessWidget {
                       ],
                     ),
                   ),
-                )
+                ),
+                ConfettiWidget(
+                  confettiController: _controller,
+                  blastDirectionality: BlastDirectionality.explosive,
+                  shouldLoop: false,
+                  maxBlastForce: 20, // set the max force
+                  minBlastForce: 8, // set the min force
+                  emissionFrequency: 0.1,
+                  numberOfParticles: 30, // adjust the number of particles
+                  gravity: 0.1,
+                ),
               ],
             ),
           ),
