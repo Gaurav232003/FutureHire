@@ -15,10 +15,15 @@ class Details {
       required this.duration,
       required this.stipend,
       required this.color,
-      required this.about});
-  String role, name, duration, stipend, about;
-  int color;
+      required this.about,
+      required this.req,
+      required this.skillset,
+      required this.desc,
+      required this.id});
+  String role, name, duration, stipend, about, desc;
+  int color, id;
   bool visibility;
+  List<String> req, skillset;
 }
 
 List<Details> internships = [];

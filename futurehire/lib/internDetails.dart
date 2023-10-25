@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:futurehire/data.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:confetti/confetti.dart';
 
+// ignore: must_be_immutable
 class InternDetails extends StatefulWidget {
   InternDetails(
       {super.key,
@@ -23,7 +23,7 @@ class _InternDetailsState extends State<InternDetails> {
   @override
   void initState() {
     super.initState();
-    _controller = ConfettiController(duration: const Duration(seconds: 2));
+    _controller = ConfettiController(duration: const Duration(seconds: 1));
   }
 
   @override
@@ -295,11 +295,11 @@ class _InternDetailsState extends State<InternDetails> {
                   confettiController: _controller,
                   blastDirectionality: BlastDirectionality.explosive,
                   shouldLoop: false,
-                  maxBlastForce: 20, // set the max force
-                  minBlastForce: 8, // set the min force
+                  maxBlastForce: 50, // set the max force
+                  minBlastForce: 20, // set the min force
                   emissionFrequency: 0.1,
-                  numberOfParticles: 30, // adjust the number of particles
-                  gravity: 0.1,
+                  numberOfParticles: 69, // adjust the number of particles
+                  gravity: 0.9,
                 ),
               ],
             ),

@@ -23,7 +23,7 @@ Future<int> fetchSkillsFromDatabase() async {
   User? user = FirebaseAuth.instance.currentUser;
   String uid = user!.uid.toString();
   final ref = FirebaseDatabase.instance.ref();
-  print('yaha aayaaaa');
+  print('yaha aayaaaa---');
   final snapshot = await ref.child('users/$uid').get();
   if (snapshot.exists) {
     Map<dynamic, dynamic> values = snapshot.value as Map<dynamic, dynamic>;
@@ -53,17 +53,21 @@ Future<int> fetchInternships() async {
     c = cc['count'];
   }
   for (int i = 1; i <= c; i++) {
-    final snapshot = await ref.child('details/$i').get();
+    final snapshot = await ref.child('internships/$i').get();
     if (snapshot.exists) {
       Map<dynamic, dynamic> values = snapshot.value as Map<dynamic, dynamic>;
       internships.add(Details(
+          about: values['about'],
+          id: values['id'],
+          req: List<String>.from(values['requirements']),
+          skillset: List<String>.from(values['skillset']),
           color: values['color'],
           visibility: values['visibility'],
           role: values['role'],
           name: values['name'],
           duration: values['duration'],
           stipend: values['stipend'],
-          about: values['desc']));
+          desc: values['desc']));
     }
   }
   print(internships);

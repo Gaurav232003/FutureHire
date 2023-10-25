@@ -85,6 +85,7 @@ class Login extends StatelessWidget {
                         email: 'gaurav2@dev.in', //'gaurav@dev.com',
                         password: '12345678',
                       );
+                      print('hereee');
                       int x = await fetchSkillsFromDatabase();
                       int y = await fetchInternships();
                       Navigator.pushReplacement(

@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:futurehire/data.dart';
 import 'package:futurehire/internDetails.dart';
@@ -14,6 +15,31 @@ class HomePage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        // floatingActionButton: FloatingActionButton(onPressed: () async {
+        //   DatabaseReference ref =
+        //       FirebaseDatabase.instance.ref("internships/4");
+        //   await ref.set({
+        //     "name": 'Biggie',
+        //     "id": 4,
+        //     "requirements": [
+        //       '1 years plus experience with flutter',
+        //       '6 hours of login period, 5 days a week',
+        //       'Ability to work in team',
+        //       'Atleast2 apps in playstore'
+        //     ],
+        //     "about":
+        //         "Biggoe is a forward-thinking tech company specializing in mobile app development. We're on a mission to build high-quality, feature-rich mobile applications, and we're seeking skilled Flutter Developers to join our team.",
+        //     "desc":
+        //         "Develop a cross-platform mobile app for our e-commerce store",
+        //     "color": 4294364251,
+        //     "duration": "1 week",
+        //     "role": "Flutter",
+        //     "stipend": "700",
+        //     "visibility": true,
+        //     "skillset": ['Flutter', 'BLOC', 'Firebase'],
+        //   });
+        //   print('doneee');
+        // }),
         body: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.only(
@@ -127,6 +153,9 @@ class HomePage extends StatelessWidget {
                             GestureDetector(
                               onTap: () {},
                               child: JobBox(
+                                s1: internships[i].skillset[0],
+                                s2: internships[i].skillset[1],
+                                s3: internships[i].skillset[2],
                                 desc: internships[i].about,
                                 role: internships[i].role,
                                 company: internships[i].name,
@@ -444,15 +473,18 @@ class GigBox extends StatelessWidget {
 }
 
 class JobBox extends StatelessWidget {
-  const JobBox(
+  JobBox(
       {super.key,
+      required this.s1,
+      required this.s2,
+      required this.s3,
       required this.role,
       required this.company,
       required this.money,
       required this.location,
       required this.colour,
       required this.desc});
-  final role, company, money, location, colour, desc;
+  final role, company, money, location, colour, desc, s1, s2, s3;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -518,7 +550,12 @@ class JobBox extends StatelessWidget {
                     width: width * 0.152,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0)),
-                    child: Text(''),
+                    child: Center(
+                        child: Text(
+                      s1,
+                      style: TextStyle(
+                          fontSize: 10.0, fontWeight: FontWeight.bold),
+                    )),
                   ),
                 ),
                 Material(
@@ -530,7 +567,12 @@ class JobBox extends StatelessWidget {
                     width: width * 0.152,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0)),
-                    child: Text(''),
+                    child: Center(
+                        child: Text(
+                      s2,
+                      style: TextStyle(
+                          fontSize: 10.0, fontWeight: FontWeight.bold),
+                    )),
                   ),
                 ),
                 Material(
@@ -542,7 +584,12 @@ class JobBox extends StatelessWidget {
                     width: width * 0.152,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0)),
-                    child: Text(''),
+                    child: Center(
+                        child: Text(
+                      s3,
+                      style: TextStyle(
+                          fontSize: 10.0, fontWeight: FontWeight.bold),
+                    )),
                   ),
                 ),
               ],
