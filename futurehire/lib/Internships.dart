@@ -60,14 +60,22 @@ class Internships extends StatelessWidget {
                     SizedBox(
                       height: height * 0.05,
                     ),
-                    for (int i = 1; i <= internships.length; i++)
+                    for (int i = 0; i < internships.length; i++)
                       ViewInternshipBox(
-                        role: internships[i - 1].role,
-                        img: 'assets/internship$i.png',
-                        name: internships[i - 1].name,
-                        money: internships[i - 1].stipend,
-                        location: 'Pune, India',
-                        desc: internships[i - 1].about,
+                        name: gigs[i].name,
+                        role: gigs[i].role,
+                        img: '',
+                        req: gigs[i].req,
+                        company: gigs[i].name,
+                        location: 'Work From Home',
+                        money: gigs[i].stipend,
+                        about: gigs[i].about,
+                        duration: gigs[i].duration,
+                        s1: gigs[i].skillset[0],
+                        s2: gigs[i].skillset[1],
+                        s3: gigs[i].skillset[2],
+                        desc: gigs[i].desc,
+                        colour: Color(gigs[i].color),
                       )
                   ],
                 ),
@@ -84,12 +92,22 @@ class ViewInternshipBox extends StatelessWidget {
   ViewInternshipBox(
       {super.key,
       required this.img,
-      required this.name,
+      required this.s1,
+      required this.s2,
+      required this.s3,
+      required this.role,
+      required this.company,
       required this.money,
       required this.location,
-      required this.role,
-      required this.desc});
+      required this.colour,
+      required this.desc,
+      required this.req,
+      required this.about,
+      required this.duration,
+      required this.name});
   String img, name, money, location, role, desc;
+  final company, colour, s1, s2, s3, about, duration;
+  List<String> req;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -100,6 +118,10 @@ class ViewInternshipBox extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) => InternDetails(
+                      skillset: [s1, s2, s3],
+                      req: req,
+                      about: about,
+                      duration: duration,
                       name: name,
                       money: money,
                       location: location,

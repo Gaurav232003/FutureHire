@@ -11,8 +11,13 @@ class InternDetails extends StatefulWidget {
       required this.money,
       required this.location,
       required this.role,
-      required this.decs});
-  String name, money, location, role, decs;
+      required this.decs,
+      required this.req,
+      required this.about,
+      required this.skillset,
+      required this.duration});
+  String name, money, location, role, decs, about, duration;
+  List<String> req, skillset;
 
   @override
   State<InternDetails> createState() => _InternDetailsState();
@@ -44,12 +49,12 @@ class _InternDetailsState extends State<InternDetails> {
     _controller.play();
   }
 
-  List<String> req = [
-    'Lörem ipsum klicktivism multin om än lud i erade. Fisör sokobelt trimäbel.',
-    'Lörem ipsum klicktivism multin om än lud i erade. Fisör sokobelt trimäbel.',
-    'Lörem ipsum klicktivism multin om än lud i erade. Fisör sokobelt trimäbel.',
-    'Lörem ipsum klicktivism multin om än lud i erade. Fisör sokobelt trimäbel.'
-  ];
+  // List<String> req = [
+  //   'Lörem ipsum klicktivism multin om än lud i erade. Fisör sokobelt trimäbel.',
+  //   'Lörem ipsum klicktivism multin om än lud i erade. Fisör sokobelt trimäbel.',
+  //   'Lörem ipsum klicktivism multin om än lud i erade. Fisör sokobelt trimäbel.',
+  //   'Lörem ipsum klicktivism multin om än lud i erade. Fisör sokobelt trimäbel.'
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -118,7 +123,7 @@ class _InternDetailsState extends State<InternDetails> {
                             width: width * 0.25,
                             child: Center(
                                 child: Text(
-                              'Analytics',
+                              widget.skillset[0],
                               style: TextStyle(fontSize: 12),
                             )),
                           ),
@@ -130,7 +135,7 @@ class _InternDetailsState extends State<InternDetails> {
                             height: height * 0.03,
                             width: width * 0.25,
                             child: Center(
-                                child: Text('Design',
+                                child: Text(widget.skillset[1],
                                     style: TextStyle(fontSize: 12))),
                           ),
                           Container(
@@ -141,7 +146,7 @@ class _InternDetailsState extends State<InternDetails> {
                             height: height * 0.03,
                             width: width * 0.25,
                             child: Center(
-                                child: Text('Content Writing',
+                                child: Text(widget.skillset[2],
                                     style: TextStyle(fontSize: 12))),
                           ),
                         ],
@@ -182,7 +187,7 @@ class _InternDetailsState extends State<InternDetails> {
                         SizedBox(
                           height: height * 0.03,
                         ),
-                        for (int index = 0; index < req.length; index++)
+                        for (int index = 0; index < widget.req.length; index++)
                           ListTile(
                             contentPadding: EdgeInsets.only(
                                 left: 10, right: 0, top: 0, bottom: 0),
@@ -197,7 +202,8 @@ class _InternDetailsState extends State<InternDetails> {
                               ),
                             ),
                             title: Text(
-                              req[index], // Replace with your actual list item text.
+                              widget.req[
+                                  index], // Replace with your actual list item text.
                               style: TextStyle(
                                 fontSize: 13.0,
                                 color: Colors
@@ -216,8 +222,7 @@ class _InternDetailsState extends State<InternDetails> {
                         SizedBox(
                           height: height * 0.03,
                         ),
-                        Text(
-                            'Lörem ipsum klicktivism multin om än lud i erade. Fisör sokobelt trimäbel. Vandrande skolbuss hypohossade nyfyr trarysade ultranera, är bere prere. Mikron grit vin. Mir kur all räde. Antir askbränd autol än hypoliga rärytan delningsekonomi i swishjournalist även om tevis. Promär dir bipävis, är pärlifiera intravanade fina. '),
+                        Text(widget.about),
                         SizedBox(
                           height: height * 0.05,
                         ),
@@ -260,7 +265,7 @@ class _InternDetailsState extends State<InternDetails> {
                               width: width * 0.05,
                             ),
                             Text(
-                              'Last Date - 15 September',
+                              widget.duration,
                               style: TextStyle(
                                   fontSize: 16.0, fontWeight: FontWeight.w500),
                             ),

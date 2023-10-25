@@ -70,6 +70,24 @@ Future<int> fetchInternships() async {
           desc: values['desc']));
     }
   }
+  for (int i = 1; i <= c; i++) {
+    final snapshot = await ref.child('gigs/$i').get();
+    if (snapshot.exists) {
+      Map<dynamic, dynamic> values = snapshot.value as Map<dynamic, dynamic>;
+      gigs.add(Details(
+          about: values['about'],
+          id: values['id'],
+          req: List<String>.from(values['requirements']),
+          skillset: List<String>.from(values['skillset']),
+          color: values['color'],
+          visibility: values['visibility'],
+          role: values['role'],
+          name: values['name'],
+          duration: values['duration'],
+          stipend: values['stipend'],
+          desc: values['desc']));
+    }
+  }
   print(internships);
   print('ho gaya');
   return 0;

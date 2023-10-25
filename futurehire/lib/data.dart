@@ -27,6 +27,8 @@ class Details {
 }
 
 List<Details> internships = [];
+List<Details> gigs = [];
+List<Details> jobs = [];
 
 List<int> applied = [];
 

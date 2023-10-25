@@ -16,27 +16,26 @@ class HomePage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         // floatingActionButton: FloatingActionButton(onPressed: () async {
-        //   DatabaseReference ref =
-        //       FirebaseDatabase.instance.ref("internships/4");
+        //   DatabaseReference ref = FirebaseDatabase.instance.ref("gigs/4");
         //   await ref.set({
-        //     "name": 'Biggie',
+        //     "name": 'InnovateTech Labs',
         //     "id": 4,
         //     "requirements": [
-        //       '1 years plus experience with flutter',
-        //       '6 hours of login period, 5 days a week',
-        //       'Ability to work in team',
-        //       'Atleast2 apps in playstore'
+        //       '2 years of experience in machine learning',
+        //       'Full-time commitment, Monday to Friday',
+        //       'Expertise in Python and deep learning frameworks',
+        //       'Strong research and problem-solving skills'
         //     ],
         //     "about":
-        //         "Biggoe is a forward-thinking tech company specializing in mobile app development. We're on a mission to build high-quality, feature-rich mobile applications, and we're seeking skilled Flutter Developers to join our team.",
+        //         "InnovateTech Labs is a leading research and development company in the field of machine learning. We're looking for skilled Machine Learning Engineers to drive our cutting-edge projects.",
         //     "desc":
-        //         "Develop a cross-platform mobile app for our e-commerce store",
-        //     "color": 4294364251,
-        //     "duration": "1 week",
-        //     "role": "Flutter",
-        //     "stipend": "700",
+        //         "Work on developing machine learning models for autonomous vehicles",
+        //     "color": 4294871096,
+        //     "duration": "6 months",
+        //     "role": "Machine Learning Engineer",
+        //     "stipend": "1500",
         //     "visibility": true,
-        //     "skillset": ['Flutter', 'BLOC', 'Firebase'],
+        //     "skillset": ['Machine Learning', 'Python', 'Deep Learning'],
         //   });
         //   print('doneee');
         // }),
@@ -153,16 +152,18 @@ class HomePage extends StatelessWidget {
                             GestureDetector(
                               onTap: () {},
                               child: JobBox(
-                                s1: internships[i].skillset[0],
-                                s2: internships[i].skillset[1],
-                                s3: internships[i].skillset[2],
-                                desc: internships[i].about,
-                                role: internships[i].role,
-                                company: internships[i].name,
-                                money: internships[i].stipend,
-                                location: 'Bengaluru,India',
-                                colour: Color(internships[i].color),
-                              ),
+                                  role: internships[i].role,
+                                  req: internships[i].req,
+                                  company: gigs[i].name,
+                                  location: 'Banglore, India',
+                                  money: internships[i].stipend,
+                                  about: internships[i].about,
+                                  duration: internships[i].duration,
+                                  s1: internships[i].skillset[0],
+                                  s2: internships[i].skillset[1],
+                                  s3: internships[i].skillset[2],
+                                  desc: internships[i].desc,
+                                  colour: Color(internships[i].color)),
                             ),
                             SizedBox(
                               width: width * 0.0509,
@@ -196,27 +197,27 @@ class HomePage extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.all(8),
                     children: [
-                      GigBox(
-                          role: 'Graphic Design',
-                          company: 'Ink Dabba',
-                          location: 'Work From Home',
-                          money: '10,000',
-                          time: '2 Weeks',
-                          decs:
-                              'Lörem ipsum terat, reas i tivanat. Jäfin ösade tyn, gedengen. Vabest dianera huruvida multire levaning, om opor. Binyk gessade för paning. ',
-                          colour: Color(0xFF67B5CF)),
-                      SizedBox(
-                        width: width * 0.0509,
-                      ),
-                      GigBox(
-                          role: 'Flutter Development',
-                          company: 'Genotek',
-                          location: 'Work From Home',
-                          money: '12,000',
-                          time: '3 Weeks',
-                          decs:
-                              'Lörem ipsum terat, reas i tivanat. Jäfin ösade tyn, gedengen. Vabest dianera huruvida multire levaning, om opor. Binyk gessade för paning. ',
-                          colour: Color(0xFFBCE784)),
+                      for (int i = 0; i < gigs.length; i++)
+                        Row(
+                          children: [
+                            GigBox(
+                                role: gigs[i].role,
+                                req: gigs[i].req,
+                                company: gigs[i].name,
+                                location: 'Work From Home',
+                                money: gigs[i].stipend,
+                                about: gigs[i].about,
+                                duration: gigs[i].duration,
+                                s1: gigs[i].skillset[0],
+                                s2: gigs[i].skillset[1],
+                                s3: gigs[i].skillset[2],
+                                desc: gigs[i].desc,
+                                colour: Color(gigs[i].color)),
+                            SizedBox(
+                              width: width * 0.0509,
+                            ),
+                          ],
+                        ),
                     ],
                   ),
                 ),
@@ -330,17 +331,32 @@ class InternshipBox extends StatelessWidget {
 }
 
 class GigBox extends StatelessWidget {
-  GigBox({
-    super.key,
-    required this.role,
-    required this.company,
-    required this.location,
-    required this.money,
-    required this.time,
-    required this.decs,
-    required this.colour,
-  });
-  final role, company, location, money, time, decs, colour;
+  GigBox(
+      {super.key,
+      required this.s1,
+      required this.s2,
+      required this.s3,
+      required this.role,
+      required this.company,
+      required this.money,
+      required this.location,
+      required this.colour,
+      required this.desc,
+      required this.req,
+      required this.about,
+      required this.duration});
+  final role,
+      company,
+      money,
+      location,
+      colour,
+      desc,
+      s1,
+      s2,
+      s3,
+      about,
+      duration;
+  List<String> req;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -349,11 +365,15 @@ class GigBox extends StatelessWidget {
           context,
           MaterialPageRoute(
               builder: (context) => InternDetails(
+                  skillset: [s1, s2, s3],
+                  req: req,
+                  about: about,
+                  duration: duration,
                   name: name,
                   money: money,
                   location: location,
                   role: role,
-                  decs: decs)),
+                  decs: desc)),
         );
       },
       child: Container(
@@ -438,7 +458,7 @@ class GigBox extends StatelessWidget {
                   width: width * 0.0127,
                 ),
                 Text(
-                  time,
+                  duration,
                   style: TextStyle(
                       fontSize: height * 0.0147, fontWeight: FontWeight.w600),
                 )
@@ -448,7 +468,7 @@ class GigBox extends StatelessWidget {
               height: height * 0.018,
             ),
             Text(
-              decs,
+              desc,
               style: TextStyle(
                   fontSize: height * 0.0123, fontWeight: FontWeight.w500),
             ),
@@ -483,8 +503,22 @@ class JobBox extends StatelessWidget {
       required this.money,
       required this.location,
       required this.colour,
-      required this.desc});
-  final role, company, money, location, colour, desc, s1, s2, s3;
+      required this.desc,
+      required this.req,
+      required this.about,
+      required this.duration});
+  final role,
+      company,
+      money,
+      location,
+      colour,
+      desc,
+      s1,
+      s2,
+      s3,
+      about,
+      duration;
+  List<String> req;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -493,6 +527,10 @@ class JobBox extends StatelessWidget {
           context,
           MaterialPageRoute(
               builder: (context) => InternDetails(
+                  skillset: [s1, s2, s3],
+                  req: req,
+                  about: about,
+                  duration: duration,
                   name: name,
                   money: money,
                   location: location,
