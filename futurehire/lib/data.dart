@@ -31,6 +31,11 @@ List<Details> gigs = [];
 List<Details> jobs = [];
 
 List<int> applied = [];
+List<int> applied2 = [];
+List<int> applied3 = [];
+List<String> appliedEmail = [];
+List<String> applied2Email = [];
+List<String> applied3Email = [];
 
 double height = 0;
 double width = 0;

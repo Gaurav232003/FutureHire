@@ -35,6 +35,16 @@ Future<int> fetchSkillsFromDatabase() async {
         applied.add(values['applied'][i]);
       }
     }
+    if (values['applied2'] != null) {
+      for (int i = 0; i < values['applied2'].length; i++) {
+        applied2.add(values['applied2'][i]);
+      }
+    }
+    if (values['applied3'] != null) {
+      for (int i = 0; i < values['applied3'].length; i++) {
+        applied3.add(values['applied3'][i]);
+      }
+    }
     name = values['name'];
     age = values['age'];
     print(values['skills']);

@@ -153,6 +153,7 @@ class HomePage extends StatelessWidget {
                               GestureDetector(
                                 onTap: () {},
                                 child: JobBox(
+                                    id: i + 1,
                                     role: internships[i].role,
                                     req: internships[i].req,
                                     company: gigs[i].name,
@@ -202,6 +203,7 @@ class HomePage extends StatelessWidget {
                         Row(
                           children: [
                             GigBox(
+                                id: i + 1,
                                 role: gigs[i].role,
                                 req: gigs[i].req,
                                 company: gigs[i].name,
@@ -345,7 +347,8 @@ class GigBox extends StatelessWidget {
       required this.desc,
       required this.req,
       required this.about,
-      required this.duration});
+      required this.duration,
+      required this.id});
   final role,
       company,
       money,
@@ -356,7 +359,8 @@ class GigBox extends StatelessWidget {
       s2,
       s3,
       about,
-      duration;
+      duration,
+      id;
   List<String> req;
   @override
   Widget build(BuildContext context) {
@@ -366,6 +370,8 @@ class GigBox extends StatelessWidget {
           context,
           MaterialPageRoute(
               builder: (context) => InternDetails(
+                  type: 1,
+                  id: id,
                   skillset: [s1, s2, s3],
                   req: req,
                   about: about,
@@ -507,7 +513,8 @@ class JobBox extends StatelessWidget {
       required this.desc,
       required this.req,
       required this.about,
-      required this.duration});
+      required this.duration,
+      required this.id});
   final role,
       company,
       money,
@@ -518,7 +525,8 @@ class JobBox extends StatelessWidget {
       s2,
       s3,
       about,
-      duration;
+      duration,
+      id;
   List<String> req;
   @override
   Widget build(BuildContext context) {
@@ -528,6 +536,8 @@ class JobBox extends StatelessWidget {
           context,
           MaterialPageRoute(
               builder: (context) => InternDetails(
+                  type: 0,
+                  id: id,
                   skillset: [s1, s2, s3],
                   req: req,
                   about: about,

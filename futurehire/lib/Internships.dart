@@ -40,6 +40,7 @@ class Internships extends StatelessWidget {
                       Column(
                         children: [
                           JobBox(
+                            id: i + 1,
                             role: internships[i].role,
                             req: internships[i].req,
                             company: internships[i].name,
@@ -85,9 +86,10 @@ class ViewInternshipBox extends StatelessWidget {
       required this.req,
       required this.about,
       required this.duration,
-      required this.name});
+      required this.name,
+      required this.id});
   String img, name, money, location, role, desc;
-  final company, colour, s1, s2, s3, about, duration;
+  final company, colour, s1, s2, s3, about, duration, id;
   List<String> req;
   @override
   Widget build(BuildContext context) {
@@ -99,6 +101,8 @@ class ViewInternshipBox extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) => InternDetails(
+                      type: 0,
+                      id: id,
                       skillset: [s1, s2, s3],
                       req: req,
                       about: about,

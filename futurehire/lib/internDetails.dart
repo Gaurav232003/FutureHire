@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:futurehire/data.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -15,10 +17,12 @@ class InternDetails extends StatefulWidget {
       required this.req,
       required this.about,
       required this.skillset,
-      required this.duration});
+      required this.duration,
+      required this.type,
+      required this.id});
   String name, money, location, role, decs, about, duration;
   List<String> req, skillset;
-
+  int type, id;
   @override
   State<InternDetails> createState() => _InternDetailsState();
 }
@@ -278,8 +282,45 @@ class _InternDetailsState extends State<InternDetails> {
                           padding: EdgeInsets.only(
                               left: width * 0.147, right: width * 0.147),
                           child: ElevatedButton(
-                              onPressed: () {
+                              onPressed: () async {
+                                User? user = FirebaseAuth.instance.currentUser;
+                                String uid = user!.uid.toString();
                                 _showAlertWithAnimation();
+                                if (widget.type == 0) {
+                                  appliedEmail.add(user!.email.toString());
+                                  applied.add(widget.id);
+                                  int x = widget.id;
+                                  DatabaseReference ref = FirebaseDatabase
+                                      .instance
+                                      .ref("internships/$x");
+                                  await ref.update({"applied": appliedEmail});
+                                  DatabaseReference ref2 = FirebaseDatabase
+                                      .instance
+                                      .ref('users/$uid');
+                                  await ref2.update({"applied": applied});
+                                } else if (widget.type == 1) {
+                                  applied2Email.add(user!.email.toString());
+                                  applied2.add(widget.id);
+                                  int x = widget.id;
+                                  DatabaseReference ref =
+                                      FirebaseDatabase.instance.ref("gigs/$x");
+                                  await ref.update({"applied": applied2Email});
+                                  DatabaseReference ref2 = FirebaseDatabase
+                                      .instance
+                                      .ref('users/$uid');
+                                  await ref2.update({"applied": applied2});
+                                } else if (widget.type == 2) {
+                                  applied3Email.add(user!.email.toString());
+                                  applied3.add(widget.id);
+                                  int x = widget.id;
+                                  DatabaseReference ref =
+                                      FirebaseDatabase.instance.ref("jobs/$x");
+                                  await ref.update({"applied": applied3Email});
+                                  DatabaseReference ref2 = FirebaseDatabase
+                                      .instance
+                                      .ref('users/$uid');
+                                  await ref2.update({"applied": applied3});
+                                }
                                 // applied.add(id);
                                 // store this applied in firebase
                               },
