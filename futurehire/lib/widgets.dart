@@ -234,52 +234,76 @@ class SignInWithGoogle extends StatelessWidget {
 }
 
 //Edit skill container
-class SkillContainer extends StatelessWidget {
-  SkillContainer(
-      {required this.color1,
-      required this.color2,
-      required this.text,
-      required this.image});
+class SkillContainer extends StatefulWidget {
+  SkillContainer({
+    required this.color1,
+    required this.color2,
+    required this.text,
+    required this.image,
+  });
+
   final Color color1;
   final Color color2;
   final String text;
   final String image;
+
+  @override
+  _SkillContainerState createState() => _SkillContainerState();
+}
+
+class _SkillContainerState extends State<SkillContainer> {
+  bool isSelected = false;
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [color1, color2],
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          isSelected = !isSelected;
+        });
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [widget.color1, widget.color2],
+          ),
+          border: isSelected
+              ? Border.all(
+                  color: Colors.blue, // You can change the border color
+                  width: 2.0, // You can adjust the border width
+                )
+              : null,
         ),
-      ),
-      //Inside Element
-      child: Stack(
-        children: [
-          Padding(
-            padding: EdgeInsets.all(20.0), // Adjust padding as needed
-            child: Align(
-              alignment: Alignment.topLeft,
-              child: Text(
-                "Hello",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+        // Inside Element
+        child: Stack(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(20.0), // Adjust padding as needed
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  widget.text,
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                ),
               ),
             ),
-          ),
-          Positioned(
-            bottom: 0,
-            right: 0,
-            child: Image.asset(
-              image, // Replace with your image path
-              fit: BoxFit.cover,
+            Positioned(
+              bottom: 0,
+              right: 0,
+              child: Image.asset(
+                widget.image, // Replace with your image path
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 }
+
 
 /*
 

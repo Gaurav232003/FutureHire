@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:futurehire/skills.dart';
 import 'login.dart';
 import 'data.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
@@ -55,7 +56,8 @@ class MyApp extends StatelessWidget {
     print(height);
     print('w');
     print(width);
-    return Login();
+    // return Login();
+    return Skills();
 
     // return MaterialApp(
     //   theme: ThemeData.dark().copyWith(

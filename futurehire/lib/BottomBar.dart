@@ -5,7 +5,7 @@ import 'package:futurehire/editSkills.dart';
 import 'package:futurehire/skills.dart';
 import 'homepage.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'chatbot.dart';
+import 'skills_list.dart';
 import 'package:futurehire/skills.dart';
 
 class BottomBar extends StatefulWidget {

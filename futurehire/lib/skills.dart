@@ -76,6 +76,7 @@ class Skills extends StatelessWidget {
                 height: height * 0.01,
               ),
               // Grid of options :
+
               SingleChildScrollView(
                 child: Container(
                   color: Colors.white10,
@@ -92,7 +93,7 @@ class Skills extends StatelessWidget {
                       SkillContainer(
                         color1: Color(0x0097b2ad).withOpacity(1),
                         color2: Color(0x7A918D),
-                        text: 'Hello',
+                        text: 'Tailwind',
                         image: 'assets/Vector.png',
                       ),
 
@@ -100,39 +101,39 @@ class Skills extends StatelessWidget {
                       SkillContainer(
                         color1: Color(0x6C978D).withOpacity(1),
                         color2: Color(0x92D1C3),
-                        text: 'Hello',
-                        image: 'assets/Vector.png',
+                        text: 'Flutter',
+                        image: 'assets/flutter_icon.png',
                       ),
 
                       //Container 3 :
                       SkillContainer(
                         color1: Color(0xA1D79E).withOpacity(1),
                         color2: Color(0x84B082),
-                        text: 'Hello',
-                        image: 'assets/Vector.png',
+                        text: 'C++',
+                        image: 'assets/cpp_icon.png',
                       ),
                       //Container 4 :
                       SkillContainer(
                         color1: Color(0x34433E).withOpacity(1),
                         color2: Color(0x93B1A7),
-                        text: 'Hello',
-                        image: 'assets/Vector.png',
+                        text: 'Figma',
+                        image: 'assets/figma_icon.png',
                       ),
 
                       //Container 5 :
                       SkillContainer(
                         color1: Color(0x44A177).withOpacity(1),
                         color2: Color(0x5DD39E),
-                        text: 'Hello',
-                        image: 'assets/Vector.png',
+                        text: 'Python',
+                        image: 'assets/pyhton_icon.png',
                       ),
 
                       //Container 6 :
                       SkillContainer(
                         color1: Color(0xBCE784).withOpacity(1),
                         color2: Color(0x9BBE6D),
-                        text: 'Hello',
-                        image: 'assets/Vector.png',
+                        text: 'Java',
+                        image: 'assets/java_icon.png',
                       ),
                     ].toList(),
                   ),
