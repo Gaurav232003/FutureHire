@@ -7,9 +7,14 @@ import 'data.dart';
 import 'internDetails.dart';
 import 'Internships.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -151,7 +156,27 @@ class HomePage extends StatelessWidget {
                           Row(
                             children: [
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => InternDetails(
+                                              type: 0,
+                                              id: internships[i].id,
+                                              skillset: internships[i].skillset,
+                                              req: internships[i].req,
+                                              about: internships[i].about,
+                                              duration: internships[i].duration,
+                                              name: internships[i].name,
+                                              money: internships[i].stipend,
+                                              location: "Banglore, India",
+                                              role: internships[i].role,
+                                              decs: internships[i].desc,
+                                            )),
+                                  ).then((value) {
+                                    setState(() {});
+                                  });
+                                },
                                 child: JobBox(
                                     id: i + 1,
                                     role: internships[i].role,
@@ -200,27 +225,50 @@ class HomePage extends StatelessWidget {
                     padding: const EdgeInsets.all(8),
                     children: [
                       for (int i = 0; i < gigs.length; i++)
-                        Row(
-                          children: [
-                            GigBox(
-                                id: i + 1,
-                                role: gigs[i].role,
-                                req: gigs[i].req,
-                                company: gigs[i].name,
-                                location: 'Work From Home',
-                                money: gigs[i].stipend,
-                                about: gigs[i].about,
-                                duration: gigs[i].duration,
-                                s1: gigs[i].skillset[0],
-                                s2: gigs[i].skillset[1],
-                                s3: gigs[i].skillset[2],
-                                desc: gigs[i].desc,
-                                colour: Color(gigs[i].color)),
-                            SizedBox(
-                              width: width * 0.0509,
-                            ),
-                          ],
-                        ),
+                        if (!applied2.contains(gigs[i].id))
+                          Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => InternDetails(
+                                            type: 1,
+                                            id: gigs[i].id,
+                                            skillset: gigs[i].skillset,
+                                            req: gigs[i].req,
+                                            about: gigs[i].about,
+                                            duration: gigs[i].duration,
+                                            name: gigs[i].name,
+                                            money: gigs[i].stipend,
+                                            location: "Banglore, India",
+                                            role: gigs[i].role,
+                                            decs: gigs[i].desc)),
+                                  ).then((value) {
+                                    setState(() {});
+                                  });
+                                },
+                                child: GigBox(
+                                    id: i + 1,
+                                    role: gigs[i].role,
+                                    req: gigs[i].req,
+                                    company: gigs[i].name,
+                                    location: 'Work From Home',
+                                    money: gigs[i].stipend,
+                                    about: gigs[i].about,
+                                    duration: gigs[i].duration,
+                                    s1: gigs[i].skillset[0],
+                                    s2: gigs[i].skillset[1],
+                                    s3: gigs[i].skillset[2],
+                                    desc: gigs[i].desc,
+                                    colour: Color(gigs[i].color)),
+                              ),
+                              SizedBox(
+                                width: width * 0.0509,
+                              ),
+                            ],
+                          ),
                     ],
                   ),
                 ),
@@ -364,136 +412,116 @@ class GigBox extends StatelessWidget {
   List<String> req;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => InternDetails(
-                  type: 1,
-                  id: id,
-                  skillset: [s1, s2, s3],
-                  req: req,
-                  about: about,
-                  duration: duration,
-                  name: name,
-                  money: money,
-                  location: location,
-                  role: role,
-                  decs: desc)),
-        );
-      },
-      child: Container(
-        height: height * 0.4,
-        width: width * 0.5092,
-        padding: EdgeInsets.all(height * 0.018),
-        decoration: BoxDecoration(
-            color: colour, borderRadius: BorderRadius.circular(15.0)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              role,
-              style: TextStyle(
-                  fontSize: height * 0.017, fontWeight: FontWeight.w600),
-            ),
-            SizedBox(
-              height: height * 0.0123,
-            ),
-            Text(
-              company,
-              style: TextStyle(
-                  color: Color(0xFF668692),
-                  fontSize: height * 0.0196,
-                  fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: height * 0.0098,
-            ),
-            Container(
-              height: 1,
-              color: Colors.black,
-            ),
-            SizedBox(
-              height: height * 0.0246,
-            ),
-            Row(
-              children: [
-                Icon(
-                  Icons.location_pin,
-                  size: height * 0.018,
-                ),
-                SizedBox(
-                  width: 0.0127,
-                ),
-                Text(
-                  location,
-                  style: TextStyle(
-                      fontSize: height * 0.0147, fontWeight: FontWeight.w600),
-                )
-              ],
-            ),
-            SizedBox(
-              height: height * 0.018,
-            ),
-            Row(
-              children: [
-                Icon(
-                  Icons.money,
-                  size: height * 0.018,
-                ),
-                SizedBox(
-                  width: width * 0.0127,
-                ),
-                Text(
-                  '₹$money',
-                  style: TextStyle(
-                      fontSize: height * 0.0147, fontWeight: FontWeight.w600),
-                )
-              ],
-            ),
-            SizedBox(
-              height: height * 0.018,
-            ),
-            Row(
-              children: [
-                Icon(
-                  Icons.calendar_month,
-                  size: height * 0.018,
-                ),
-                SizedBox(
-                  width: width * 0.0127,
-                ),
-                Text(
-                  duration,
-                  style: TextStyle(
-                      fontSize: height * 0.0147, fontWeight: FontWeight.w600),
-                )
-              ],
-            ),
-            SizedBox(
-              height: height * 0.018,
-            ),
-            Text(
-              desc,
-              style: TextStyle(
-                  fontSize: height * 0.0123, fontWeight: FontWeight.w500),
-            ),
-            SizedBox(
-              height: height * 0.0123,
-            ),
-            Row(
-              children: [
-                Text(
-                  'View Details',
-                  style: TextStyle(
-                      fontSize: height * 0.0123, fontWeight: FontWeight.bold),
-                ),
-                Icon(Icons.arrow_right_alt)
-              ],
-            )
-          ],
-        ),
+    return Container(
+      height: height * 0.4,
+      width: width * 0.5092,
+      padding: EdgeInsets.all(height * 0.018),
+      decoration: BoxDecoration(
+          color: colour, borderRadius: BorderRadius.circular(15.0)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            role,
+            style: TextStyle(
+                fontSize: height * 0.017, fontWeight: FontWeight.w600),
+          ),
+          SizedBox(
+            height: height * 0.0123,
+          ),
+          Text(
+            company,
+            style: TextStyle(
+                color: Color(0xFF668692),
+                fontSize: height * 0.0196,
+                fontWeight: FontWeight.bold),
+          ),
+          SizedBox(
+            height: height * 0.0098,
+          ),
+          Container(
+            height: 1,
+            color: Colors.black,
+          ),
+          SizedBox(
+            height: height * 0.0246,
+          ),
+          Row(
+            children: [
+              Icon(
+                Icons.location_pin,
+                size: height * 0.018,
+              ),
+              SizedBox(
+                width: 0.0127,
+              ),
+              Text(
+                location,
+                style: TextStyle(
+                    fontSize: height * 0.0147, fontWeight: FontWeight.w600),
+              )
+            ],
+          ),
+          SizedBox(
+            height: height * 0.018,
+          ),
+          Row(
+            children: [
+              Icon(
+                Icons.money,
+                size: height * 0.018,
+              ),
+              SizedBox(
+                width: width * 0.0127,
+              ),
+              Text(
+                '₹$money',
+                style: TextStyle(
+                    fontSize: height * 0.0147, fontWeight: FontWeight.w600),
+              )
+            ],
+          ),
+          SizedBox(
+            height: height * 0.018,
+          ),
+          Row(
+            children: [
+              Icon(
+                Icons.calendar_month,
+                size: height * 0.018,
+              ),
+              SizedBox(
+                width: width * 0.0127,
+              ),
+              Text(
+                duration,
+                style: TextStyle(
+                    fontSize: height * 0.0147, fontWeight: FontWeight.w600),
+              )
+            ],
+          ),
+          SizedBox(
+            height: height * 0.018,
+          ),
+          Text(
+            desc,
+            style: TextStyle(
+                fontSize: height * 0.0123, fontWeight: FontWeight.w500),
+          ),
+          SizedBox(
+            height: height * 0.0123,
+          ),
+          Row(
+            children: [
+              Text(
+                'View Details',
+                style: TextStyle(
+                    fontSize: height * 0.0123, fontWeight: FontWeight.bold),
+              ),
+              Icon(Icons.arrow_right_alt)
+            ],
+          )
+        ],
       ),
     );
   }
@@ -528,150 +556,128 @@ class JobBox extends StatelessWidget {
       duration,
       id;
   List<String> req;
+
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => InternDetails(
-                  type: 0,
-                  id: id,
-                  skillset: [s1, s2, s3],
-                  req: req,
-                  about: about,
-                  duration: duration,
-                  name: name,
-                  money: money,
-                  location: location,
-                  role: role,
-                  decs: desc)),
-        );
-      },
-      child: Container(
-        padding: EdgeInsets.all(height * 0.0184),
-        width: width * 0.6366,
-        decoration: BoxDecoration(
-            color: colour, borderRadius: BorderRadius.all(Radius.circular(20))),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Icon(
-                  Icons.square,
-                  size: height * 0.0492,
-                ),
-                SizedBox(
-                  width: width * 0.025,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      role,
-                      style: TextStyle(
-                          fontSize: height * 0.019,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      company,
-                      style: TextStyle(
-                          fontSize: height * 0.0123,
-                          fontWeight: FontWeight.w600),
-                    )
-                  ],
-                )
-              ],
-            ),
-            SizedBox(
-              height: height * 0.0123,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Material(
-                  color: colour,
-                  borderRadius: BorderRadius.circular(10.0),
-                  elevation: height * 0.0123,
-                  child: Container(
-                    height: height * 0.022,
-                    width: width * 0.152,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0)),
-                    child: Center(
-                        child: Text(
-                      s1,
-                      style: TextStyle(
-                          fontSize: 10.0, fontWeight: FontWeight.bold),
-                    )),
+    return Container(
+      padding: EdgeInsets.all(height * 0.0184),
+      width: width * 0.6366,
+      decoration: BoxDecoration(
+          color: colour, borderRadius: BorderRadius.all(Radius.circular(20))),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Icon(
+                Icons.square,
+                size: height * 0.0492,
+              ),
+              SizedBox(
+                width: width * 0.025,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    role,
+                    style: TextStyle(
+                        fontSize: height * 0.019, fontWeight: FontWeight.bold),
                   ),
+                  Text(
+                    company,
+                    style: TextStyle(
+                        fontSize: height * 0.0123, fontWeight: FontWeight.w600),
+                  )
+                ],
+              )
+            ],
+          ),
+          SizedBox(
+            height: height * 0.0123,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Material(
+                color: colour,
+                borderRadius: BorderRadius.circular(10.0),
+                elevation: height * 0.0123,
+                child: Container(
+                  height: height * 0.022,
+                  width: width * 0.152,
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
+                  child: Center(
+                      child: Text(
+                    s1,
+                    style:
+                        TextStyle(fontSize: 10.0, fontWeight: FontWeight.bold),
+                  )),
                 ),
-                Material(
-                  color: colour,
-                  borderRadius: BorderRadius.circular(10.0),
-                  elevation: height * 0.0123,
-                  child: Container(
-                    height: height * 0.022,
-                    width: width * 0.152,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0)),
-                    child: Center(
-                        child: Text(
-                      s2,
-                      style: TextStyle(
-                          fontSize: 10.0, fontWeight: FontWeight.bold),
-                    )),
+              ),
+              Material(
+                color: colour,
+                borderRadius: BorderRadius.circular(10.0),
+                elevation: height * 0.0123,
+                child: Container(
+                  height: height * 0.022,
+                  width: width * 0.152,
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
+                  child: Center(
+                      child: Text(
+                    s2,
+                    style:
+                        TextStyle(fontSize: 10.0, fontWeight: FontWeight.bold),
+                  )),
+                ),
+              ),
+              Material(
+                color: colour,
+                borderRadius: BorderRadius.circular(10.0),
+                elevation: height * 0.0123,
+                child: Container(
+                  height: height * 0.022,
+                  width: width * 0.152,
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
+                  child: Center(
+                      child: Text(
+                    s3,
+                    style:
+                        TextStyle(fontSize: 10.0, fontWeight: FontWeight.bold),
+                  )),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: height * 0.0135,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                '₹$money/year',
+                style: TextStyle(
+                    fontSize: height * 0.0123, fontWeight: FontWeight.bold),
+              ),
+              Row(
+                children: [
+                  Icon(
+                    Icons.location_pin,
+                    size: height * 0.0184,
                   ),
-                ),
-                Material(
-                  color: colour,
-                  borderRadius: BorderRadius.circular(10.0),
-                  elevation: height * 0.0123,
-                  child: Container(
-                    height: height * 0.022,
-                    width: width * 0.152,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0)),
-                    child: Center(
-                        child: Text(
-                      s3,
-                      style: TextStyle(
-                          fontSize: 10.0, fontWeight: FontWeight.bold),
-                    )),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: height * 0.0135,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  '₹$money/year',
-                  style: TextStyle(
-                      fontSize: height * 0.0123, fontWeight: FontWeight.bold),
-                ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.location_pin,
-                      size: height * 0.0184,
-                    ),
-                    Text(
-                      location,
-                      style: TextStyle(
-                          fontSize: height * 0.0123,
-                          fontWeight: FontWeight.bold),
-                    )
-                  ],
-                )
-              ],
-            )
-          ],
-        ),
+                  Text(
+                    location,
+                    style: TextStyle(
+                        fontSize: height * 0.0123, fontWeight: FontWeight.bold),
+                  )
+                ],
+              )
+            ],
+          )
+        ],
       ),
     );
   }

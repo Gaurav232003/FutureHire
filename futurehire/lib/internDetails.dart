@@ -20,7 +20,14 @@ class InternDetails extends StatefulWidget {
       required this.duration,
       required this.type,
       required this.id});
-  String name, money, location, role, decs, about, duration;
+  String name,
+      money,
+      location,
+      role,
+      decs,
+      about,
+      duration,
+      button = "S U B M I T";
   List<String> req, skillset;
   int type, id;
   @override
@@ -62,6 +69,9 @@ class _InternDetailsState extends State<InternDetails> {
 
   @override
   Widget build(BuildContext context) {
+    if (applied.contains(widget.id)) {
+      widget.button = "S U B M I T T E D";
+    }
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -283,54 +293,69 @@ class _InternDetailsState extends State<InternDetails> {
                               left: width * 0.147, right: width * 0.147),
                           child: ElevatedButton(
                               onPressed: () async {
-                                User? user = FirebaseAuth.instance.currentUser;
-                                String uid = user!.uid.toString();
-                                _showAlertWithAnimation();
-                                if (widget.type == 0) {
-                                  appliedEmail.add(user!.email.toString());
-                                  applied.add(widget.id);
-                                  int x = widget.id;
-                                  DatabaseReference ref = FirebaseDatabase
-                                      .instance
-                                      .ref("internships/$x");
-                                  await ref.update({"applied": appliedEmail});
-                                  DatabaseReference ref2 = FirebaseDatabase
-                                      .instance
-                                      .ref('users/$uid');
-                                  await ref2.update({"applied": applied});
-                                } else if (widget.type == 1) {
-                                  applied2Email.add(user!.email.toString());
-                                  applied2.add(widget.id);
-                                  int x = widget.id;
-                                  DatabaseReference ref =
-                                      FirebaseDatabase.instance.ref("gigs/$x");
-                                  await ref.update({"applied": applied2Email});
-                                  DatabaseReference ref2 = FirebaseDatabase
-                                      .instance
-                                      .ref('users/$uid');
-                                  await ref2.update({"applied": applied2});
-                                } else if (widget.type == 2) {
-                                  applied3Email.add(user!.email.toString());
-                                  applied3.add(widget.id);
-                                  int x = widget.id;
-                                  DatabaseReference ref =
-                                      FirebaseDatabase.instance.ref("jobs/$x");
-                                  await ref.update({"applied": applied3Email});
-                                  DatabaseReference ref2 = FirebaseDatabase
-                                      .instance
-                                      .ref('users/$uid');
-                                  await ref2.update({"applied": applied3});
+                                if (widget.button == "S U B M I T") {
+                                  setState(() {
+                                    widget.button = "S U B M I T T E D";
+                                  });
+                                  User? user =
+                                      FirebaseAuth.instance.currentUser;
+                                  String uid = user!.uid.toString();
+                                  _showAlertWithAnimation();
+                                  if (widget.type == 0) {
+                                    appliedEmail.add(user!.email.toString());
+                                    applied.add(widget.id);
+                                    int x = widget.id;
+                                    DatabaseReference ref = FirebaseDatabase
+                                        .instance
+                                        .ref("internships/$x");
+                                    await ref.update({"applied": appliedEmail});
+                                    DatabaseReference ref2 = FirebaseDatabase
+                                        .instance
+                                        .ref('users/$uid');
+                                    await ref2.update({"applied": applied});
+                                  } else if (widget.type == 1) {
+                                    applied2Email.add(user!.email.toString());
+                                    applied2.add(widget.id);
+                                    int x = widget.id;
+                                    DatabaseReference ref = FirebaseDatabase
+                                        .instance
+                                        .ref("gigs/$x");
+                                    await ref
+                                        .update({"applied": applied2Email});
+                                    DatabaseReference ref2 = FirebaseDatabase
+                                        .instance
+                                        .ref('users/$uid');
+                                    await ref2.update({"applied2": applied2});
+                                  } else if (widget.type == 2) {
+                                    applied3Email.add(user!.email.toString());
+                                    applied3.add(widget.id);
+                                    int x = widget.id;
+                                    DatabaseReference ref = FirebaseDatabase
+                                        .instance
+                                        .ref("jobs/$x");
+                                    await ref
+                                        .update({"applied": applied3Email});
+                                    DatabaseReference ref2 = FirebaseDatabase
+                                        .instance
+                                        .ref('users/$uid');
+                                    await ref2.update({"applied3": applied3});
+                                  }
+
+                                  // Future.delayed(Duration(seconds: 2), () {
+                                  //   Navigator.of(context).pop();
+                                  // });
                                 }
-                                // applied.add(id);
-                                // store this applied in firebase
                               },
+                              // applied.add(id);
+                              // store this applied in firebase
+
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xFF4CA3B6),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
-                              child: const Text('S U B M I T')),
+                              child: Text(widget.button)),
                         ),
                         SizedBox(
                           height: height * 0.05,
