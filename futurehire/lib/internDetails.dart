@@ -280,6 +280,8 @@ class _InternDetailsState extends State<InternDetails> {
                           child: ElevatedButton(
                               onPressed: () {
                                 _showAlertWithAnimation();
+                                // applied.add(id);
+                                // store this applied in firebase
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xFF4CA3B6),

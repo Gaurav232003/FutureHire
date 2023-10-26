@@ -147,29 +147,30 @@ class HomePage extends StatelessWidget {
                     padding: const EdgeInsets.all(8),
                     children: <Widget>[
                       for (int i = 0; i < internships.length; i++)
-                        Row(
-                          children: [
-                            GestureDetector(
-                              onTap: () {},
-                              child: JobBox(
-                                  role: internships[i].role,
-                                  req: internships[i].req,
-                                  company: gigs[i].name,
-                                  location: 'Banglore, India',
-                                  money: internships[i].stipend,
-                                  about: internships[i].about,
-                                  duration: internships[i].duration,
-                                  s1: internships[i].skillset[0],
-                                  s2: internships[i].skillset[1],
-                                  s3: internships[i].skillset[2],
-                                  desc: internships[i].desc,
-                                  colour: Color(internships[i].color)),
-                            ),
-                            SizedBox(
-                              width: width * 0.0509,
-                            ),
-                          ],
-                        ),
+                        if (!applied.contains(internships[i].id))
+                          Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () {},
+                                child: JobBox(
+                                    role: internships[i].role,
+                                    req: internships[i].req,
+                                    company: gigs[i].name,
+                                    location: 'Banglore, India',
+                                    money: internships[i].stipend,
+                                    about: internships[i].about,
+                                    duration: internships[i].duration,
+                                    s1: internships[i].skillset[0],
+                                    s2: internships[i].skillset[1],
+                                    s3: internships[i].skillset[2],
+                                    desc: internships[i].desc,
+                                    colour: Color(internships[i].color)),
+                              ),
+                              SizedBox(
+                                width: width * 0.0509,
+                              ),
+                            ],
+                          ),
                       // JobBox(
                       //   role: 'Web Developer',
                       //   company: 'Google',
