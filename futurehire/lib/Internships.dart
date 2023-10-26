@@ -1,35 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:futurehire/homepage.dart';
 import 'data.dart';
 import 'widgets.dart';
 import 'internDetails.dart';
 
 class Internships extends StatelessWidget {
   Internships({super.key});
-  List<String> name = [
-    'Kia',
-    'Atlassian',
-    'J.P. Morgan',
-    'Canon',
-    'Open A.I',
-    'Intel'
-  ];
-  List<String> money = ['8000', '10000', '20000', '15000', '10000', '30000'];
-  List<String> location = [
-    'Banglore, India',
-    'Delhi, India',
-    'Kolkata, India',
-    'Hyderabad, India',
-    'Pune, India',
-    'Remote'
-  ];
-  List<String> role = [
-    'Digital marketing',
-    'Data Analyst',
-    'Cybersecurity',
-    'Product Designer',
-    'ML Dev',
-    'Software Tester'
-  ];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,7 +14,7 @@ class Internships extends StatelessWidget {
         backgroundColor: Color(0xFFD9E7E5),
         body: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               LoginSphere(
                 img: 'assets/internshipBanner.png',
@@ -61,21 +37,26 @@ class Internships extends StatelessWidget {
                       height: height * 0.05,
                     ),
                     for (int i = 0; i < internships.length; i++)
-                      ViewInternshipBox(
-                        name: gigs[i].name,
-                        role: gigs[i].role,
-                        img: '',
-                        req: gigs[i].req,
-                        company: gigs[i].name,
-                        location: 'Work From Home',
-                        money: gigs[i].stipend,
-                        about: gigs[i].about,
-                        duration: gigs[i].duration,
-                        s1: gigs[i].skillset[0],
-                        s2: gigs[i].skillset[1],
-                        s3: gigs[i].skillset[2],
-                        desc: gigs[i].desc,
-                        colour: Color(gigs[i].color),
+                      Column(
+                        children: [
+                          JobBox(
+                            role: internships[i].role,
+                            req: internships[i].req,
+                            company: internships[i].name,
+                            location: 'Work From Home',
+                            money: internships[i].stipend,
+                            about: internships[i].about,
+                            duration: internships[i].duration,
+                            s1: internships[i].skillset[0],
+                            s2: internships[i].skillset[1],
+                            s3: internships[i].skillset[2],
+                            desc: internships[i].desc,
+                            colour: Color(internships[i].color),
+                          ),
+                          SizedBox(
+                            height: height * 0.05,
+                          )
+                        ],
                       )
                   ],
                 ),
