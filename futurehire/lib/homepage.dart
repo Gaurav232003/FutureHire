@@ -152,7 +152,9 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.all(8),
                     children: <Widget>[
                       for (int i = 0; i < internships.length; i++)
-                        if (!applied.contains(internships[i].id))
+                        if (!applied.contains(internships[i].id) &&
+                            skills.any((element) =>
+                                internships[i].skillset.contains(element)))
                           Row(
                             children: [
                               GestureDetector(
@@ -181,7 +183,7 @@ class _HomePageState extends State<HomePage> {
                                     id: i + 1,
                                     role: internships[i].role,
                                     req: internships[i].req,
-                                    company: gigs[i].name,
+                                    company: internships[i].name,
                                     location: 'Banglore, India',
                                     money: internships[i].stipend,
                                     about: internships[i].about,
@@ -225,7 +227,9 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.all(8),
                     children: [
                       for (int i = 0; i < gigs.length; i++)
-                        if (!applied2.contains(gigs[i].id))
+                        if (!applied2.contains(gigs[i].id) &&
+                            skills.any((element) =>
+                                gigs[i].skillset.contains(element)))
                           Row(
                             children: [
                               GestureDetector(
