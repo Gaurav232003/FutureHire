@@ -56,6 +56,14 @@ Future<int> fetchSkillsFromDatabase() async {
 
 Future<int> fetchInternships() async {
   final ref = FirebaseDatabase.instance.ref();
+  final snapshot3 = await ref.child('allSkills').get();
+  if (snapshot3.exists) {
+    Map<dynamic, dynamic> values2 = snapshot3.value as Map<dynamic, dynamic>;
+    for (int i = 0; i < values2['allSkills'].length; i++) {
+      allSkills.add(values2['allSkills'][i].toString());
+    }
+    print(allSkills);
+  }
   final snapshot2 = await ref.child('count').get();
   int c = 1;
   if (snapshot2.exists) {
