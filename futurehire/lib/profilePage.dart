@@ -92,7 +92,7 @@ class Profile extends StatelessWidget {
                         Column(
                           children: [
                             Text(
-                              '17',
+                              noapplied.toString(),
                               style: TextStyle(
                                   fontWeight: FontWeight.w700,
                                   fontSize: height * 0.0246),
@@ -105,7 +105,7 @@ class Profile extends StatelessWidget {
                         ),
                         Column(
                           children: [
-                            Text('12',
+                            Text(accepted.toString(),
                                 style: TextStyle(
                                     fontWeight: FontWeight.w700,
                                     fontSize: height * 0.0246)),
@@ -117,7 +117,7 @@ class Profile extends StatelessWidget {
                         ),
                         Column(
                           children: [
-                            Text('2',
+                            Text(hired.toString(),
                                 style: TextStyle(
                                     fontWeight: FontWeight.w700,
                                     fontSize: height * 0.0246)),

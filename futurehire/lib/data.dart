@@ -7,6 +7,8 @@ String age = '';
 List<Widget> displaySkills = [];
 List<String> jobBoxColor = [];
 
+int hired = 0, noapplied = 0, accepted = 0;
+
 class Details {
   Details(
       {required this.role,

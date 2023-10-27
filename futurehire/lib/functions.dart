@@ -47,6 +47,9 @@ Future<int> fetchSkillsFromDatabase() async {
     }
     name = values['name'];
     age = values['age'];
+    noapplied = values['noapplied'];
+    accepted = values['accepted'];
+    hired = values['hired'];
     print(values['skills']);
   } else {
     print('No data available.');
