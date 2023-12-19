@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:futurehire/editSkills.dart';
+import 'package:futurehire/explore_page/ui/explore_page.dart';
 import 'package:futurehire/skills.dart';
 import 'homepage.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -23,9 +24,7 @@ class _BottomBarState extends State<BottomBar> {
   final List<Widget> _screens = [
     HomePage(),
     Skills(),
-    Scaffold(
-      body: Center(child: Text('Coming Soon')),
-    ),
+    ExplorePage(),
     Scaffold(
       body: Center(child: Text('Coming Soon')),
     ),
