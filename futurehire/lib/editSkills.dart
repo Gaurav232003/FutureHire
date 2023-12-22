@@ -56,6 +56,7 @@ class _EditSkillsState extends State<EditSkills> {
                           hintText: 'Search Skill',
                           hintStyle: TextStyle(color: Colors.white60),
                           border: InputBorder.none,
+
                         ),
                       ),
                     ),
