@@ -18,7 +18,8 @@ class SkillsPage extends StatefulWidget {
 class _SkillsPageState extends State<SkillsPage> {
   void removeSkills(String fullSkills) {
     setState(() {
-      allSkills.remove(fullSkills);
+      skills.remove(fullSkills);
+      print(skills);
     });
   }
 
@@ -114,9 +115,9 @@ class _SkillsPageState extends State<SkillsPage> {
                                 childAspectRatio: 3 / 2,
                                 crossAxisSpacing: 20,
                                 mainAxisSpacing: 20),
-                        itemCount: allSkills.length,
+                        itemCount: skills.length,
                         itemBuilder: (context, index) {
-                          final userSkills = allSkills[index];
+                          final userSkills = skills[index];
                           return Card(
                             color: Color(0xFFA3c17C),
                             child: Stack(children: [
