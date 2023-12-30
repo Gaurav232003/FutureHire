@@ -43,9 +43,10 @@ class _InternshipsState extends State<Internships> {
                       height: height * 0.05,
                     ),
                     for (int i = 0; i < internships.length; i++)
-                      if (!applied.contains(internships[i].id) &&
-                          skills.any((element) =>
-                              internships[i].skillset.contains(element)))
+                      // if (!applied.contains(internships[i].id) &&
+                      //     skills.any((element) =>
+                      //         internships[i].skillset.contains(element)))
+                      if (!applied.contains(internships[i].id))
                         Column(
                           children: [
                             GestureDetector(

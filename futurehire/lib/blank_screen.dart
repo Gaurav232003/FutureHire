@@ -36,7 +36,9 @@ class _BlankScreenState extends State<BlankScreen> {
       Navigator.pushReplacement(
           context,
           new MaterialPageRoute(
-              builder: (BuildContext context) => BottomBar()));
+              builder: (BuildContext context) => BottomBar(
+                    si: 0,
+                  )));
     });
 
     return Container(

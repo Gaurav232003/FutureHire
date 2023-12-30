@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:futurehire/BottomBar.dart';
 import 'package:futurehire/data.dart';
-import 'package:futurehire/skills_page/ui/skills_page.dart';
 
 class AddSkillsPage extends StatefulWidget {
   const AddSkillsPage({super.key});
@@ -139,8 +139,12 @@ class _AddSkillsPageState extends State<AddSkillsPage> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (builder) => SkillsPage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (builder) => BottomBar(
+                                  si: 1,
+                                )));
                   },
                   child: Container(
                     margin: EdgeInsets.all(14),

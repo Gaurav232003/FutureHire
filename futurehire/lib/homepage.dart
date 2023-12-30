@@ -108,10 +108,8 @@ class _HomePageState extends State<HomePage> {
                       child: CircleAvatar(
                         radius: height * 0.0369,
                         backgroundColor: Color(0xFF357F8B),
-                        child: Icon(
-                          Icons.person,
-                          size: height * 0.049,
-                        ),
+                        backgroundImage:
+                            AssetImage('assets/pfp_nameholder.png'),
                       ),
                     )
                   ],
@@ -152,53 +150,54 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.all(8),
                     children: <Widget>[
                       for (int i = 0; i < internships.length; i++)
-                        if (!applied.contains(internships[i].id) &&
-                            skills.any((element) =>
-                                internships[i].skillset.contains(element)))
-                          Row(
-                            children: [
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => InternDetails(
-                                              type: 0,
-                                              id: internships[i].id,
-                                              skillset: internships[i].skillset,
-                                              req: internships[i].req,
-                                              about: internships[i].about,
-                                              duration: internships[i].duration,
-                                              name: internships[i].name,
-                                              money: internships[i].stipend,
-                                              location: "Banglore, India",
-                                              role: internships[i].role,
-                                              decs: internships[i].desc,
-                                            )),
-                                  ).then((value) {
-                                    setState(() {});
-                                  });
-                                },
-                                child: JobBox(
-                                    id: i + 1,
-                                    role: internships[i].role,
-                                    req: internships[i].req,
-                                    company: internships[i].name,
-                                    location: 'Banglore, India',
-                                    money: internships[i].stipend,
-                                    about: internships[i].about,
-                                    duration: internships[i].duration,
-                                    s1: internships[i].skillset[0],
-                                    s2: internships[i].skillset[1],
-                                    s3: internships[i].skillset[2],
-                                    desc: internships[i].desc,
-                                    colour: Color(internships[i].color)),
-                              ),
-                              SizedBox(
-                                width: width * 0.0509,
-                              ),
-                            ],
-                          ),
+                        // if (!applied.contains(internships[i].id) &&
+                        //     skills.any((element) =>
+                        //         internships[i].skillset.contains(element)))
+                        // if (!applied.contains(internships[i].id))
+                        Row(
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => InternDetails(
+                                            type: 0,
+                                            id: internships[i].id,
+                                            skillset: internships[i].skillset,
+                                            req: internships[i].req,
+                                            about: internships[i].about,
+                                            duration: internships[i].duration,
+                                            name: internships[i].name,
+                                            money: internships[i].stipend,
+                                            location: "Banglore, India",
+                                            role: internships[i].role,
+                                            decs: internships[i].desc,
+                                          )),
+                                ).then((value) {
+                                  setState(() {});
+                                });
+                              },
+                              child: JobBox(
+                                  id: i + 1,
+                                  role: internships[i].role,
+                                  req: internships[i].req,
+                                  company: internships[i].name,
+                                  location: 'Banglore, India',
+                                  money: internships[i].stipend,
+                                  about: internships[i].about,
+                                  duration: internships[i].duration,
+                                  s1: internships[i].skillset[0],
+                                  s2: internships[i].skillset[1],
+                                  s3: internships[i].skillset[2],
+                                  desc: internships[i].desc,
+                                  colour: Color(internships[i].color)),
+                            ),
+                            SizedBox(
+                              width: width * 0.0509,
+                            ),
+                          ],
+                        ),
                       // JobBox(
                       //   role: 'Web Developer',
                       //   company: 'Google',
@@ -227,52 +226,53 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.all(8),
                     children: [
                       for (int i = 0; i < gigs.length; i++)
-                        if (!applied2.contains(gigs[i].id) &&
-                            skills.any((element) =>
-                                gigs[i].skillset.contains(element)))
-                          Row(
-                            children: [
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => InternDetails(
-                                            type: 1,
-                                            id: gigs[i].id,
-                                            skillset: gigs[i].skillset,
-                                            req: gigs[i].req,
-                                            about: gigs[i].about,
-                                            duration: gigs[i].duration,
-                                            name: gigs[i].name,
-                                            money: gigs[i].stipend,
-                                            location: "Banglore, India",
-                                            role: gigs[i].role,
-                                            decs: gigs[i].desc)),
-                                  ).then((value) {
-                                    setState(() {});
-                                  });
-                                },
-                                child: GigBox(
-                                    id: i + 1,
-                                    role: gigs[i].role,
-                                    req: gigs[i].req,
-                                    company: gigs[i].name,
-                                    location: 'Work From Home',
-                                    money: gigs[i].stipend,
-                                    about: gigs[i].about,
-                                    duration: gigs[i].duration,
-                                    s1: gigs[i].skillset[0],
-                                    s2: gigs[i].skillset[1],
-                                    s3: gigs[i].skillset[2],
-                                    desc: gigs[i].desc,
-                                    colour: Color(gigs[i].color)),
-                              ),
-                              SizedBox(
-                                width: width * 0.0509,
-                              ),
-                            ],
-                          ),
+                        // if (!applied2.contains(gigs[i].id) &&
+                        //     skills.any((element) =>
+                        //         gigs[i].skillset.contains(element)))
+                        // if (!applied2.contains(gigs[i].id))
+                        Row(
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => InternDetails(
+                                          type: 1,
+                                          id: gigs[i].id,
+                                          skillset: gigs[i].skillset,
+                                          req: gigs[i].req,
+                                          about: gigs[i].about,
+                                          duration: gigs[i].duration,
+                                          name: gigs[i].name,
+                                          money: gigs[i].stipend,
+                                          location: "Banglore, India",
+                                          role: gigs[i].role,
+                                          decs: gigs[i].desc)),
+                                ).then((value) {
+                                  setState(() {});
+                                });
+                              },
+                              child: GigBox(
+                                  id: i + 1,
+                                  role: gigs[i].role,
+                                  req: gigs[i].req,
+                                  company: gigs[i].name,
+                                  location: 'Work From Home',
+                                  money: gigs[i].stipend,
+                                  about: gigs[i].about,
+                                  duration: gigs[i].duration,
+                                  s1: gigs[i].skillset[0],
+                                  s2: gigs[i].skillset[1],
+                                  s3: gigs[i].skillset[2],
+                                  desc: gigs[i].desc,
+                                  colour: Color(gigs[i].color)),
+                            ),
+                            SizedBox(
+                              width: width * 0.0509,
+                            ),
+                          ],
+                        ),
                     ],
                   ),
                 ),
