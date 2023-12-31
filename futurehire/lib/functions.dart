@@ -115,6 +115,7 @@ void LoginFunction(String email, String pass, BuildContext context) async {
 //   print('ho gaya');
 //   return 0;
 // }
+
 Future<void> fetchData() async {
   await Future.wait([fetchSkillsFromDatabase(), fetchInternships()]);
   // The code here will be executed after both functions complete.
@@ -149,7 +150,11 @@ Future<int> fetchSkillsFromDatabase() async {
         applied3.add(values['applied3'][i]);
       }
     }
-
+    name = values['name'];
+    age = values['age'];
+    noapplied = values['noapplied'];
+    accepted = values['accepted'];
+    hired = values['hired'];
     // ... (similar updates for applied2, applied3, name, age, noapplied, accepted, hired)
 
     print(values['skills']);

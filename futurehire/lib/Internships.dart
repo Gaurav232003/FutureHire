@@ -39,6 +39,7 @@ class _InternshipsState extends State<Internships> {
                       style: TextStyle(
                           fontSize: 20.0, fontWeight: FontWeight.bold),
                     ),
+                    Text('(Based on your skills)'),
                     SizedBox(
                       height: height * 0.05,
                     ),
@@ -46,7 +47,9 @@ class _InternshipsState extends State<Internships> {
                       // if (!applied.contains(internships[i].id) &&
                       //     skills.any((element) =>
                       //         internships[i].skillset.contains(element)))
-                      if (!applied.contains(internships[i].id))
+                      if (skills.any((element) =>
+                          internships[i].skillset.contains(element)))
+                        // if (!applied.contains(internships[i].id))
                         Column(
                           children: [
                             GestureDetector(

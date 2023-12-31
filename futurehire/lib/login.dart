@@ -6,8 +6,6 @@ import 'package:futurehire/data.dart';
 import 'widgets.dart';
 import 'register.dart';
 import 'blank_screen.dart';
-// import 'homepage.dart';
-// import 'data.dart';
 import 'BottomBar.dart';
 import 'functions.dart';
 
