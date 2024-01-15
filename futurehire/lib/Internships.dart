@@ -39,13 +39,17 @@ class _InternshipsState extends State<Internships> {
                       style: TextStyle(
                           fontSize: 20.0, fontWeight: FontWeight.bold),
                     ),
+                    Text('(Based on your skills)'),
                     SizedBox(
                       height: height * 0.05,
                     ),
                     for (int i = 0; i < internships.length; i++)
-                      if (!applied.contains(internships[i].id) &&
-                          skills.any((element) =>
-                              internships[i].skillset.contains(element)))
+                      // if (!applied.contains(internships[i].id) &&
+                      //     skills.any((element) =>
+                      //         internships[i].skillset.contains(element)))
+                      if (skills.any((element) =>
+                          internships[i].skillset.contains(element)))
+                        // if (!applied.contains(internships[i].id))
                         Column(
                           children: [
                             GestureDetector(

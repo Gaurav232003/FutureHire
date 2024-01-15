@@ -312,6 +312,8 @@ class _InternDetailsState extends State<InternDetails> {
                                     DatabaseReference ref2 = FirebaseDatabase
                                         .instance
                                         .ref('users/$uid');
+                                    noapplied++;
+                                    await ref2.update({"noapplied": noapplied});
                                     await ref2.update({"applied": applied});
                                   } else if (widget.type == 1) {
                                     applied2Email.add(user!.email.toString());
@@ -325,6 +327,8 @@ class _InternDetailsState extends State<InternDetails> {
                                     DatabaseReference ref2 = FirebaseDatabase
                                         .instance
                                         .ref('users/$uid');
+                                    noapplied++;
+                                    await ref2.update({"noapplied": noapplied});
                                     await ref2.update({"applied2": applied2});
                                   } else if (widget.type == 2) {
                                     applied3Email.add(user!.email.toString());

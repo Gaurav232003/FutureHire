@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:futurehire/BottomBar.dart';
 import 'package:futurehire/data.dart';
-import 'package:futurehire/skills_page/ui/skills_page.dart';
 
 class AddSkillsPage extends StatefulWidget {
   const AddSkillsPage({super.key});
@@ -13,25 +13,24 @@ class AddSkillsPage extends StatefulWidget {
 class _AddSkillsPageState extends State<AddSkillsPage> {
   final searchController = TextEditingController();
 
-  List<String> dispaly_list = List.from(skills);
+  List<String> dispaly_list = List.from(allSkills);
 
   // Filtering skills method
   void filterSkills(String value) {
     // Filter skills based on the query
 
     setState(() {
-      dispaly_list = skills
+      dispaly_list = allSkills
           .where(
               (element) => element.toLowerCase().contains(value.toLowerCase()))
           .toList();
     });
-
   }
 
   // add skills
-  void addSkills(String skills) {
+  void addSkills(String skill) {
     setState(() {
-      allSkills.add(skills);
+      skills.add(skill);
     });
 
     showDialog(
@@ -104,7 +103,7 @@ class _AddSkillsPageState extends State<AddSkillsPage> {
                 itemBuilder: (context, index) {
                   final skill = dispaly_list[index];
                   // final isSkillSelected = selectedSkills.contains(skill);
-                  if(!allSkills.contains(skill)) {
+                  if (!skills.contains(skill)) {
                     return Card(
                       color: Color(0xFFA3c17C),
                       elevation: 1,
@@ -124,7 +123,7 @@ class _AddSkillsPageState extends State<AddSkillsPage> {
                             icon: Icon(Icons.add)),
                       ),
                     );
-                  } else{
+                  } else {
                     return Container();
                   }
                 },
@@ -140,7 +139,12 @@ class _AddSkillsPageState extends State<AddSkillsPage> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (builder) => SkillsPage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (builder) => BottomBar(
+                                  si: 1,
+                                )));
                   },
                   child: Container(
                     margin: EdgeInsets.all(14),
@@ -148,7 +152,7 @@ class _AddSkillsPageState extends State<AddSkillsPage> {
                     width: 100,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      border: Border.all(color: Color(0xFFA3c17C),width: 2),
+                      border: Border.all(color: Color(0xFFA3c17C), width: 2),
                     ),
                     child: Center(
                       child: Text(

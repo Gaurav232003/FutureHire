@@ -70,10 +70,8 @@ class Profile extends StatelessWidget {
                         CircleAvatar(
                           radius: height * 0.0615,
                           backgroundColor: Color(0xFF357F8B),
-                          child: Icon(
-                            Icons.person,
-                            size: height * 0.0738,
-                          ),
+                          backgroundImage:
+                              AssetImage('assets/pfp_nameholder.png'),
                         ),
                       ],
                     ),
@@ -273,7 +271,7 @@ class PersonalDetails extends StatelessWidget {
                 style:
                     TextStyle(color: Colors.white, fontSize: height * 0.0147),
               ),
-              Text('Amartya Kumar',
+              Text(name,
                   style: TextStyle(
                       color: Colors.white, fontSize: height * 0.0147)),
               Icon(

@@ -11,14 +11,15 @@ import 'skills_list.dart';
 import 'package:futurehire/skills.dart';
 
 class BottomBar extends StatefulWidget {
-  const BottomBar({super.key});
-
+  BottomBar({super.key, required this.si});
+  int si;
   @override
-  State<BottomBar> createState() => _BottomBarState();
+  State<BottomBar> createState() => _BottomBarState(si);
 }
 
 class _BottomBarState extends State<BottomBar> {
-  int _selectedIndex = 0;
+  _BottomBarState(this._selectedIndex);
+  int _selectedIndex;
 
 // List of all the pages
 

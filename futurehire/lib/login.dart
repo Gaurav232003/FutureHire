@@ -6,8 +6,6 @@ import 'package:futurehire/data.dart';
 import 'widgets.dart';
 import 'register.dart';
 import 'blank_screen.dart';
-// import 'homepage.dart';
-// import 'data.dart';
 import 'BottomBar.dart';
 import 'functions.dart';
 
@@ -86,12 +84,15 @@ class Login extends StatelessWidget {
                         password: '12345678',
                       );
                       print('hereee');
-                      int x = await fetchSkillsFromDatabase();
-                      int y = await fetchInternships();
+                      // int x = await fetchSkillsFromDatabase();
+                      // int y = await fetchInternships();
+                      await fetchData();
                       Navigator.pushReplacement(
                         context,
                         new MaterialPageRoute(
-                          builder: (BuildContext context) => BottomBar(),
+                          builder: (BuildContext context) => BottomBar(
+                            si: 0,
+                          ),
                         ),
                       );
                     },
