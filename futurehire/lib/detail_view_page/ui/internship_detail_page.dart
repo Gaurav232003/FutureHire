@@ -101,7 +101,7 @@ class _DetailViewPageState extends State<DetailViewPage> {
                                               style: TextStyle(
                                                 color: Color.fromRGBO(245, 245, 245, 1),
                                                 fontFamily: 'poppins',
-                                                fontSize: 29,
+                                                fontSize: 30,
                                                 decoration: TextDecoration.underline,
                                                 decorationColor: Color.fromRGBO(245, 245, 245, 1),
                                                 decorationThickness: 1,
