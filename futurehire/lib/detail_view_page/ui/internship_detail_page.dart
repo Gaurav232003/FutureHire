@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:futurehire/data.dart';
+import 'package:futurehire/internship/detail_page/ui/detail_page.dart';
 
 class DetailViewPage extends StatefulWidget {
   const DetailViewPage({super.key});
@@ -76,9 +77,8 @@ class _DetailViewPageState extends State<DetailViewPage> {
                           padding: EdgeInsets.only(left: 25, right: 25, top: 76),
                           child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
-                              mainAxisSpacing: 15,
                               crossAxisSpacing: 15,
-                              childAspectRatio: 160 / 280),
+                              childAspectRatio: 160 / 245),
                               itemCount: internships.length,
                               itemBuilder: (context,index) {
                                 final typesIntern = internships[index];
@@ -101,7 +101,7 @@ class _DetailViewPageState extends State<DetailViewPage> {
                                               style: TextStyle(
                                                 color: Color.fromRGBO(245, 245, 245, 1),
                                                 fontFamily: 'poppins',
-                                                fontSize: 30,
+                                                fontSize: 20,
                                                 decoration: TextDecoration.underline,
                                                 decorationColor: Color.fromRGBO(245, 245, 245, 1),
                                                 decorationThickness: 1,
@@ -113,12 +113,26 @@ class _DetailViewPageState extends State<DetailViewPage> {
                                             padding: EdgeInsets.only(left: 12, right: 12, top: 8),
                                             child: Text(
                                               typesIntern.desc,
+                                              maxLines: 2,
                                               textAlign: TextAlign.left,
                                               style: TextStyle(
                                                 color: Color.fromRGBO(249, 249, 247, 1),
-                                                //fontWeight: FontWeight.normal,
                                                 fontSize: 14,
                                                   fontFamily: 'Inter-Regular'
+                                              ),
+                                            ),
+                                          ),
+
+                                          Padding(
+                                            padding: const EdgeInsets.only(left: 12),
+                                            child: Text(
+                                             "....",
+                                              maxLines: 2,
+                                              textAlign: TextAlign.left,
+                                              style: TextStyle(
+                                                  color: Color.fromRGBO(249, 249, 247, 1),
+                                                  fontSize: 18,
+                                                letterSpacing: 2,
                                               ),
                                             ),
                                           ),
@@ -150,20 +164,30 @@ class _DetailViewPageState extends State<DetailViewPage> {
                                             ),
                                           ),
 
-                                          Container(
-                                            padding: EdgeInsets.only(left: 12, right: 12,),
-                                            width: MediaQuery.of(context).size.width,
-                                            decoration: BoxDecoration(
-                                                color: Color.fromRGBO(245, 245, 245, 1),
-                                                borderRadius: BorderRadius.only(
-                                                    bottomRight: Radius.circular(12),
-                                                    bottomLeft: Radius.circular(12))),
-                                            child: Padding(
-                                              padding: const EdgeInsets.all(8.0),
-                                              child: Center(
-                                                child: Text(
-                                                  "View",
-                                                  style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,fontFamily: 'Inter-Black'),
+                                          GestureDetector(
+                                            onTap: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (builder) => DetailPage (
+                                                        item: typesIntern,
+                                                      )));
+                                            },
+                                            child: Container(
+                                              padding: EdgeInsets.only(left: 12, right: 12,),
+                                              width: MediaQuery.of(context).size.width,
+                                              decoration: BoxDecoration(
+                                                  color: Color.fromRGBO(245, 245, 245, 1),
+                                                  borderRadius: BorderRadius.only(
+                                                      bottomRight: Radius.circular(12),
+                                                      bottomLeft: Radius.circular(12))),
+                                              child: Padding(
+                                                padding: const EdgeInsets.all(8.0),
+                                                child: Center(
+                                                  child: Text(
+                                                    "View",
+                                                    style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,fontFamily: 'Inter-Black'),
+                                                  ),
                                                 ),
                                               ),
                                             ),
