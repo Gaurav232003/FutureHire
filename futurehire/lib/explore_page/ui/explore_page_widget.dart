@@ -2,6 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../detail_view_page/ui/internship_detail_page.dart';
+
 
 Widget carouselSliders(BuildContext context) {
   return Center(
@@ -14,7 +16,9 @@ Widget carouselSliders(BuildContext context) {
             _slidersContainer(
                 "INTERSHIP",
                 "Get Yourself the Dream Job you deserve on a few clicks",
-                    () {},
+                    () {
+                  Navigator.push(context, MaterialPageRoute(builder: (builder) => DetailViewPage()));
+                    },
                 const Color.fromRGBO(170, 201, 175, 100)),
             _slidersContainer(
                 "GIGS",
