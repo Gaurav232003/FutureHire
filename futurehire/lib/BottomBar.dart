@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:futurehire/editSkills.dart';
 import 'package:futurehire/explore_page/ui/explore_page.dart';
+import 'package:futurehire/notice_page/ui/notice_page_ui.dart';
 import 'package:futurehire/skills.dart';
 import 'package:futurehire/skills_page/ui/skills_page.dart';
 import 'homepage.dart';
@@ -28,9 +29,7 @@ class _BottomBarState extends State<BottomBar> {
     //Skills(),
     SkillsPage(),
     ExplorePage(),
-    Scaffold(
-      body: Center(child: Text('Coming Soon')),
-    ),
+    NoticePage()
 
     // Add more screens here
   ];

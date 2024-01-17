@@ -92,6 +92,8 @@ flutter:
      - family: poppins
        fonts:
          - asset: fonts/poppins/Poppins-Bold.ttf
+         - asset: fonts/poppins/Poppins-SemiBold.ttf
+         - asset: fonts/poppins/Poppins-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
      - family: Inter
