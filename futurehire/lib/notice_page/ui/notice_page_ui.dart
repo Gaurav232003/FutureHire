@@ -44,21 +44,22 @@ class _NoticePageState extends State<NoticePage> {
                         height: 70.h,
                         decoration: BoxDecoration(
                           color: Color.fromRGBO(171, 201, 197, 1),
-                          borderRadius: BorderRadius.circular(36),
+                          borderRadius: BorderRadius.circular(44),
                         ),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                           Container(
-
                           width: 80.w,
-                          height: 90.h,
+                          height: 70.h,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20.w),
-
-                              ),
+                            color: Colors.blue,
+                             shape: BoxShape.circle,
+                            ),
                           child:
-                          Image(width: 30.w, height: 30.h, image: AssetImage('assets/${notice.avatar}'),
-                          fit: BoxFit.cover,),
+                          Image( image: AssetImage('assets/${notice.avatar}'),
+                              fit:BoxFit.fill
+                          ),
                         ),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,3 +104,4 @@ class _NoticePageState extends State<NoticePage> {
     );
   }
 }
+
