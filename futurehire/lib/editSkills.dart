@@ -5,7 +5,7 @@ import 'data.dart';
 import 'widgets.dart';
 
 class EditSkills extends StatefulWidget {
-  const EditSkills({super.key});
+  const EditSkills();
 
   @override
   State<EditSkills> createState() => _EditSkillsState();

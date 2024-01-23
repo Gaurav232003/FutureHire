@@ -4,7 +4,7 @@ import 'package:futurehire/BottomBar.dart';
 import 'package:futurehire/data.dart';
 
 class AddSkillsPage extends StatefulWidget {
-  const AddSkillsPage({super.key});
+  const AddSkillsPage();
 
   @override
   State<AddSkillsPage> createState() => _AddSkillsPageState();

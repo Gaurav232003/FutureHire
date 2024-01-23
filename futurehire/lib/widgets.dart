@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import 'data.dart';
 
 class LineOrLine extends StatelessWidget {
-  const LineOrLine({
-    super.key,
-  });
+  const LineOrLine();
 
   @override
   Widget build(BuildContext context) {
@@ -128,7 +126,7 @@ class LoginPlateTextField extends StatelessWidget {
 // }
 
 class LoginPlate2 extends StatelessWidget {
-  const LoginPlate2({super.key, required this.icon, required this.text});
+  const LoginPlate2({ required this.icon, required this.text});
 
   final IconData icon;
   final String text;
@@ -164,7 +162,7 @@ class LoginPlate2 extends StatelessWidget {
 
 // ignore: must_be_immutable
 class LoginSphere extends StatelessWidget {
-  LoginSphere({super.key, required this.img, required this.text});
+  LoginSphere({ required this.img, required this.text});
   String img, text;
   @override
   Widget build(BuildContext context) {
@@ -195,9 +193,7 @@ class LoginSphere extends StatelessWidget {
 }
 
 class SignInWithGoogle extends StatelessWidget {
-  const SignInWithGoogle({
-    super.key,
-  });
+  const SignInWithGoogle();
 
   @override
   Widget build(BuildContext context) {

@@ -5,7 +5,7 @@ import 'package:futurehire/data.dart';
 class DetailPage extends StatefulWidget {
   final Details item;
 
-  const DetailPage({super.key,required this.item});
+  const DetailPage({required this.item});
 
   @override
   State<DetailPage> createState() => _DetailPageState();

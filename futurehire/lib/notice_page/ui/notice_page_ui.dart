@@ -4,7 +4,7 @@ import 'package:futurehire/notice_page/data/notification_data.dart';
 
 
 class NoticePage extends StatefulWidget {
-  const NoticePage({super.key});
+  const NoticePage();
 
   @override
   State<NoticePage> createState() => _NoticePageState();

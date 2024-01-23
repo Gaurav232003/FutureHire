@@ -5,7 +5,7 @@ import 'package:futurehire/data.dart';
 import 'package:futurehire/widgets.dart';
 
 class Skills extends StatelessWidget {
-  const Skills({super.key});
+  const Skills();
 
   @override
   Widget build(BuildContext context) {

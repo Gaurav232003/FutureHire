@@ -6,7 +6,7 @@ import 'data.dart';
 import 'functions.dart';
 
 class BlankScreen extends StatefulWidget {
-  const BlankScreen({super.key});
+  const BlankScreen();
 
   @override
   State<BlankScreen> createState() => _BlankScreenState();

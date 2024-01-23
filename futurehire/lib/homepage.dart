@@ -8,7 +8,7 @@ import 'internDetails.dart';
 import 'Internships.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage();
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -338,7 +338,7 @@ class _HomePageState extends State<HomePage> {
 
 class InternshipBox extends StatelessWidget {
   const InternshipBox(
-      {super.key,
+      {
       required this.icon,
       required this.name,
       required this.role,
@@ -391,7 +391,7 @@ class InternshipBox extends StatelessWidget {
 
 class GigBox extends StatelessWidget {
   GigBox(
-      {super.key,
+      {
       required this.s1,
       required this.s2,
       required this.s3,
@@ -537,7 +537,7 @@ class GigBox extends StatelessWidget {
 
 class JobBox extends StatelessWidget {
   JobBox(
-      {super.key,
+      {
       required this.s1,
       required this.s2,
       required this.s3,

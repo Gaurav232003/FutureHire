@@ -4,7 +4,7 @@ import 'package:futurehire/data.dart';
 import 'package:futurehire/internship/detail_page/ui/detail_page.dart';
 
 class DetailViewPage extends StatefulWidget {
-  const DetailViewPage({super.key});
+  const DetailViewPage();
 
   @override
   State<DetailViewPage> createState() => _DetailViewPageState();

@@ -10,7 +10,7 @@ import 'BottomBar.dart';
 import 'functions.dart';
 
 class Login extends StatelessWidget {
-  Login({super.key});
+  Login();
   TextEditingController email1 = TextEditingController();
   TextEditingController pass1 = TextEditingController();
   @override

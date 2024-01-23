@@ -12,7 +12,7 @@ import 'skills_list.dart';
 import 'package:futurehire/skills.dart';
 
 class BottomBar extends StatefulWidget {
-  BottomBar({super.key, required this.si});
+  BottomBar({ required this.si});
   int si;
   @override
   State<BottomBar> createState() => _BottomBarState(si);

@@ -4,7 +4,7 @@ import 'package:futurehire/data.dart';
 import 'package:futurehire/explore_page/ui/explore_page_widget.dart';
 
 class ExplorePage extends StatefulWidget {
-  const ExplorePage({super.key});
+  const ExplorePage();
 
   @override
   State<ExplorePage> createState() => _ExplorePageState();

@@ -50,6 +50,7 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true
+        minSdkVersion 21
     }
 
     buildTypes {
@@ -59,6 +60,7 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+    compileSdkVersion 34
 }
 
 flutter {

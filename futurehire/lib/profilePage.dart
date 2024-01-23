@@ -5,7 +5,7 @@ import 'data.dart';
 import 'editSkills.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({super.key});
+  const Profile();
 
   @override
   Widget build(BuildContext context) {
@@ -192,11 +192,13 @@ class Profile extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            'Resume',
-                            style: TextStyle(
-                                fontSize: height * 0.0246,
-                                fontWeight: FontWeight.bold),
+                          InkWell(
+                            child: Text(
+                              'Resume',
+                              style: TextStyle(
+                                  fontSize: height * 0.0246,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                           Container(
                             height: height * 0.0369,
@@ -230,9 +232,7 @@ class Profile extends StatelessWidget {
 }
 
 class PersonalDetails extends StatelessWidget {
-  const PersonalDetails({
-    super.key,
-  });
+  const PersonalDetails();
 
   @override
   Widget build(BuildContext context) {

@@ -9,7 +9,7 @@ import 'package:futurehire/skills_page/ui/add_skills_page.dart';
 import 'package:futurehire/skills_page/ui/skills_page_widget.dart';
 
 class SkillsPage extends StatefulWidget {
-  const SkillsPage({super.key});
+  const SkillsPage();
 
   @override
   State<SkillsPage> createState() => _SkillsPageState();

@@ -1,8 +1,69 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:futurehire/data.dart';
+import 'package:path_provider/path_provider.dart';
 import 'widgets.dart';
+import 'dart:io';
 
-class Register extends StatelessWidget {
-  const Register({super.key});
+class Register extends StatefulWidget {
+  const Register();
+
+  @override
+  State<Register> createState() => _RegisterState();
+}
+
+class _RegisterState extends State<Register> {
+  // Resume
+  File? _resume;
+
+  // Select the Resume
+  Future<void> _pickResume() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['pdf', 'doc', 'docx'],
+    );
+
+    if (result != null) {
+      setState(() {
+        _resume = File(result.files.single.path!);
+      });
+    }
+  }
+
+  // Save The Resume
+  Future<void> _saveResume() async {
+    if (_resume != null) {
+      final directory = await getApplicationDocumentsDirectory();
+      final newResumePath = '${directory.path}/resume.pdf';
+
+      // Copy the selected resume to the application's documents directory
+      await _resume!.copy(newResumePath);
+
+      // Navigate to the resume view page
+      // Navigator.push(
+      //   context,
+      //   MaterialPageRoute(
+      //     builder: (context) => ResumeViewPage(resumePath: newResumePath),
+      //   ),
+      // );
+    } else {
+      // Handle the case where no resume is selected
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('Error'),
+          content: Text('Please select a resume before submitting.'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text('OK'),
+            ),
+          ],
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -236,10 +297,54 @@ class Register extends StatelessWidget {
                               const SizedBox(
                                 height: 10.0,
                               ),
-                              Align(
-                                alignment: Alignment.centerLeft,
-                                child: LoginPlate2(
-                                    icon: Icons.cloud, text: 'Choose'),
+
+                              // upload resume option
+                              Column(
+                                children: [
+                                  InkWell(
+                                    onTap: _pickResume,
+                                    child: Row(
+                                      children: [
+                                        Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: LoginPlate2(
+                                              icon: Icons.cloud,
+                                              text: 'Choose'),
+                                        ),
+                                        SizedBox(width: 6.w,),
+                                        if (_resume != null)
+                                          Expanded(
+                                            child: Text(
+                                              'Resume Selected: ${_resume!.path}',
+                                              maxLines: 2,
+                                              style: TextStyle(fontSize: 16),
+                                            ),
+                                          )
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(height: 10.h,),
+
+                                  //   Submit button
+
+                                  GestureDetector(
+                                    onTap:  _saveResume,
+                                    child: Container(
+                                      height: height * 0.061,
+                                      margin:
+                                          EdgeInsets.only(right: width * 0.043),
+                                      decoration: const BoxDecoration(
+                                          color: Color(0xFFa5a7a6)),
+                                      child: Center(
+                                        child: Text(
+                                          "Submit",
+                                          style: TextStyle(
+                                              fontSize: height * 0.027),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                               const SizedBox(
                                 height: 20.0,

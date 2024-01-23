@@ -5,7 +5,7 @@ import 'widgets.dart';
 import 'internDetails.dart';
 
 class Internships extends StatefulWidget {
-  Internships({super.key});
+  Internships();
 
   @override
   State<Internships> createState() => _InternshipsState();

@@ -8,8 +8,8 @@ import 'package:confetti/confetti.dart';
 // ignore: must_be_immutable
 class InternDetails extends StatefulWidget {
   InternDetails(
-      {super.key,
-      required this.name,
+      {
+        required this.name,
       required this.money,
       required this.location,
       required this.role,
