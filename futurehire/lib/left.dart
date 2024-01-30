@@ -1,8 +1,7 @@
 // Notice Page
-// View aaplications page
+// View aaplications page firebase ka data
 // Explore mai view all
 // view all skills based
-// profile page mai view ka button
 // skills page UI
 // Job ka integration
 // Registraion function

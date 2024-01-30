@@ -36,36 +36,30 @@ class _ExplorePageState extends State<ExplorePage> {
                   ),
                   Row(
                     children: [
-                      Text(
-                          "Your",
+                      Text("Your",
                           style: TextStyle(
                               fontFamily: "Inter",
                               fontSize: 13.sp,
                               fontWeight: FontWeight.normal,
-                              color: Colors.black)
+                              color: Colors.black)),
+                      SizedBox(
+                        width: 6.w,
                       ),
-                      SizedBox(width: 6.w,),
-                      Text(
-                          "optiions",
+                      Text("optiions",
                           style: TextStyle(
                               fontFamily: "Inter",
                               fontSize: 13.sp,
                               fontWeight: FontWeight.normal,
-                              color: Colors.black)
-                      ),
-
+                              color: Colors.black)),
                     ],
                   ),
                 ],
               ),
             ),
 
-
-
-
-
-
-            SizedBox(height: 16.h ,),
+            SizedBox(
+              height: 16.h,
+            ),
 
             //   SubHeading
             Container(
@@ -80,20 +74,22 @@ class _ExplorePageState extends State<ExplorePage> {
               ),
             ),
 
-            SizedBox(height: 20.h ,),
+            SizedBox(
+              height: 20.h,
+            ),
 
             //   carousel
             carouselSliders(context),
 
-            SizedBox(height: 10.h ,),
+            SizedBox(
+              height: 0.h,
+            ),
 
             //   Image and point
             backImage(context)
           ],
         ),
       ),
-
-
     );
   }
 }

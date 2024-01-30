@@ -4,17 +4,19 @@ class Assets {
 
   static const String assetsACCEPTED = 'assets/ACCEPTED.png';
   static const String assetsAd1 = 'assets/ad1.png';
-  static const String assetsBackgroundComplete = 'assets/background-complete.png';
+  static const String assetsBackgroundComplete =
+      'assets/background-complete.png';
   static const String assetsBackgroundSimple = 'assets/background-simple.png';
   static const String assetsCharacter = 'assets/Character.png';
-  static const String assetsClippath group = 'assets/Clip path group.png';
+  static const String assetsClippathgroup = 'assets/Clip path group.png';
   static const String assetsCppIcon = 'assets/cpp_icon.png';
   static const String assetsFigmaIcon = 'assets/figma_icon.png';
   static const String assetsFigmaSvg = 'assets/Figma_svg.png';
   static const String assetsFlutterIcon = 'assets/flutter_icon.png';
-  static const String assetsGrommetIconsMoney = 'assets/grommet-icons_money.png';
+  static const String assetsGrommetIconsMoney =
+      'assets/grommet-icons_money.png';
   static const String assetsGroup = 'assets/Group.png';
-  static const String assetsGroup 88 = 'assets/Group 88.png';
+  static const String assetsGroup88 = 'assets/Group 88.png';
   static const String assetsHitachi = 'assets/Hitachi.png';
   static const String assetsInternship1 = 'assets/internship1.png';
   static const String assetsInternship2 = 'assets/internship2.png';
@@ -24,7 +26,8 @@ class Assets {
   static const String assetsInternship6 = 'assets/internship6.png';
   static const String assetsInternshipBanner = 'assets/internshipBanner.png';
   static const String assetsJavaIcon = 'assets/java_icon.png';
-  static const String assetsJavaScript Tutorial  png = 'assets/JavaScript Tutorial - png.png';
+  static const String assetsJavaScriptTutorialpng =
+      'assets/JavaScript Tutorial - png.png';
   static const String assetsLoginsphere = 'assets/loginsphere.png';
   static const String assetsLogo = 'assets/logo.jpeg';
   static const String assetsPENDING = 'assets/PENDING.png';
@@ -33,12 +36,11 @@ class Assets {
   static const String assetsPlant2 = 'assets/plant-2.png';
   static const String assetsPlants = 'assets/Plants.png';
   static const String assetsPyhtonIcon = 'assets/pyhton_icon.png';
-  static const String assetsPython svg = 'assets/Python svg.png';
+  static const String assetsPythonsvg = 'assets/Python svg.png';
   static const String assetsREJECTED = 'assets/REJECTED.png';
   static const String assetsRocks = 'assets/rocks.png';
   static const String assetsRoute = 'assets/Route.png';
   static const String assetsVector = 'assets/Vector.png';
-  static const String assetsVector 1 = 'assets/Vector 1.png';
-  static const String assetsVector 2 = 'assets/Vector 2.png';
-
+  static const String assetsVector1 = 'assets/Vector 1.png';
+  static const String assetsVector2 = 'assets/Vector 2.png';
 }
