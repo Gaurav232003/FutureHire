@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:futurehire/BottomBar.dart';
+import 'package:futurehire/Screens/BottomBar.dart';
 import 'package:futurehire/data.dart';
 
 class AddSkillsPage extends StatefulWidget {

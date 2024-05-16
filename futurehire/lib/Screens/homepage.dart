@@ -1,9 +1,9 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:futurehire/data.dart';
-import 'package:futurehire/internDetails.dart';
+import 'package:futurehire/Screens/internDetails.dart';
 import 'profilePage.dart';
-import 'data.dart';
+import '../data.dart';
 import 'internDetails.dart';
 import 'Internships.dart';
 

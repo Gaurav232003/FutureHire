@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:futurehire/data.dart';
-import 'package:futurehire/internDetails.dart';
+import 'package:futurehire/Screens/internDetails.dart';
 import 'package:futurehire/internship/detail_page/ui/detail_page.dart';
 
 class DetailViewPage extends StatefulWidget {

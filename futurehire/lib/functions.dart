@@ -2,11 +2,11 @@ import 'dart:ffi';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:futurehire/BottomBar.dart';
+import 'package:futurehire/Screens/BottomBar.dart';
 import 'data.dart';
-import 'homepage.dart';
-import 'skills_page/ui/skills_page.dart';
-import 'skills.dart';
+import 'Screens/homepage.dart';
+import 'Screens/skills_page/ui/skills_page.dart';
+import 'Screens/skills.dart';
 import 'notice_page/data/notification_data.dart';
 
 // void LoginFunction(String email, String pass, BuildContext context) async {

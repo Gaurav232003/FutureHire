@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:futurehire/data.dart';
-import 'package:futurehire/skills_page/bloc/skills_bloc.dart';
-import 'package:futurehire/skills_page/ui/add_skills_page.dart';
-import 'package:futurehire/skills_page/ui/skills_page_widget.dart';
+import 'package:futurehire/Screens/skills_page/bloc/skills_bloc.dart';
+import 'package:futurehire/Screens/skills_page/ui/add_skills_page.dart';
+import 'package:futurehire/Screens/skills_page/ui/skills_page_widget.dart';
 
 class SkillsPage extends StatefulWidget {
   const SkillsPage();

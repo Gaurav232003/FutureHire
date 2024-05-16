@@ -3,11 +3,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:futurehire/data.dart';
-import 'widgets.dart';
+import '../widgets.dart';
 import 'register.dart';
-import 'blank_screen.dart';
-import 'BottomBar.dart';
-import 'functions.dart';
+import '../Screens/BottomBar.dart';
+import '../functions.dart';
 
 class Login extends StatelessWidget {
   Login();

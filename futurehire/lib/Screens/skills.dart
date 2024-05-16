@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'data.dart';
+import '../data.dart';
 import 'BottomBar.dart';
-import 'data.dart';
-import 'functions.dart';
+import '../data.dart';
+import '../functions.dart';
 
 class SkillsPage2 extends StatefulWidget {
   @override

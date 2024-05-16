@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:futurehire/homepage.dart';
-import 'data.dart';
-import 'widgets.dart';
+import 'package:futurehire/Screens/homepage.dart';
+import '../data.dart';
+import '../widgets.dart';
 import 'internDetails.dart';
 
 class Internships extends StatefulWidget {

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:futurehire/skills.dart';
-import 'package:futurehire/skills_page/bloc/skills_bloc.dart';
-import 'login.dart';
+import 'package:futurehire/Screens/skills.dart';
+import 'package:futurehire/Screens/skills_page/bloc/skills_bloc.dart';
+import 'auth/login.dart';
 import 'data.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -63,7 +63,7 @@ class MyApp extends StatelessWidget {
     print('height: ');
     print(height);
     print('w');
-    print(width); 
+    print(width);
     // return Login();
     return Login();
 

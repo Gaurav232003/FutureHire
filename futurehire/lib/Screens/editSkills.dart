@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, use_full_hex_values_for_flutter_colors, sort_child_properties_last
 
 import 'package:flutter/material.dart';
-import 'data.dart';
-import 'widgets.dart';
+import '../data.dart';
+import '../widgets.dart';
 
 class EditSkills extends StatefulWidget {
   const EditSkills();
@@ -56,7 +56,6 @@ class _EditSkillsState extends State<EditSkills> {
                           hintText: 'Search Skill',
                           hintStyle: TextStyle(color: Colors.white60),
                           border: InputBorder.none,
-
                         ),
                       ),
                     ),

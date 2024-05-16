@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:futurehire/Appplication/ui/application%20_page.dart';
-import 'data.dart';
+import '../data.dart';
 import 'editSkills.dart';
 
 class Profile extends StatelessWidget {
@@ -48,7 +48,7 @@ class Profile extends StatelessWidget {
                       height: height * 0.0492,
                     ),
                     Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,18 +67,23 @@ class Profile extends StatelessWidget {
                                   color: Colors.grey,
                                   fontWeight: FontWeight.bold),
                             ),
-                            SizedBox(height: 10.h,),
+                            SizedBox(
+                              height: 10.h,
+                            ),
                             GestureDetector(
-                              onTap: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (builder)=>ApplicationPage()));
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (builder) =>
+                                            ApplicationPage()));
                               },
                               child: Container(
                                 height: 30.h,
                                 width: 190.w,
                                 decoration: BoxDecoration(
-                                  color: Colors.black,
-                                  borderRadius: BorderRadius.circular(22)
-                                ),
+                                    color: Colors.black,
+                                    borderRadius: BorderRadius.circular(22)),
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Row(
@@ -86,13 +91,19 @@ class Profile extends StatelessWidget {
                                       Text(
                                         "View Application",
                                         style: TextStyle(
-                                            color: Color.fromRGBO(214, 230, 228, 1),
+                                            color: Color.fromRGBO(
+                                                214, 230, 228, 1),
                                             fontSize: 16,
                                             fontWeight: FontWeight.w700,
                                             fontFamily: "poppins"),
                                       ),
-                                      SizedBox(width: 8,),
-                                      Image.asset("assets/arrow.png",color:Color.fromRGBO(214, 230, 228, 1),)
+                                      SizedBox(
+                                        width: 8,
+                                      ),
+                                      Image.asset(
+                                        "assets/arrow.png",
+                                        color: Color.fromRGBO(214, 230, 228, 1),
+                                      )
                                     ],
                                   ),
                                 ),

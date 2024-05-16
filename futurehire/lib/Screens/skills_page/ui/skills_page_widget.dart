@@ -2,7 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:futurehire/skills_page/bloc/skills_bloc.dart';
+import 'package:futurehire/Screens/skills_page/bloc/skills_bloc.dart';
 
 Widget sliders(BuildContext context, SkillsState state) {
   return Column(
@@ -21,7 +21,9 @@ Widget sliders(BuildContext context, SkillsState state) {
           ],
         ),
       ),
-      SizedBox(height: 6.h,),
+      SizedBox(
+        height: 6.h,
+      ),
       Container(
         child: DotsIndicator(
           dotsCount: 3,
@@ -35,7 +37,7 @@ Widget sliders(BuildContext context, SkillsState state) {
               5,
             ),
             activeShape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
           ),
         ),
       )

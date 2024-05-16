@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:futurehire/data.dart';
 import 'package:path_provider/path_provider.dart';
-import 'widgets.dart';
+import '../widgets.dart';
 import 'dart:io';
-import 'functions.dart';
-import 'skills.dart';
+import '../functions.dart';
 
 class Register extends StatefulWidget {
   const Register();

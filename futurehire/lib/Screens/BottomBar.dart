@@ -1,18 +1,18 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:futurehire/editSkills.dart';
+import 'package:futurehire/Screens/editSkills.dart';
 import 'package:futurehire/explore_page/ui/explore_page.dart';
 import 'package:futurehire/notice_page/ui/notice_page_ui.dart';
-import 'package:futurehire/skills.dart';
-import 'package:futurehire/skills_page/ui/skills_page.dart';
+import 'package:futurehire/Screens/skills.dart';
+import 'package:futurehire/Screens/skills_page/ui/skills_page.dart';
 import 'homepage.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'skills_list.dart';
-import 'package:futurehire/skills.dart';
+import '../skills_list.dart';
+import 'package:futurehire/Screens/skills.dart';
 
 class BottomBar extends StatefulWidget {
-  BottomBar({ required this.si});
+  BottomBar({required this.si});
   int si;
   @override
   State<BottomBar> createState() => _BottomBarState(si);
