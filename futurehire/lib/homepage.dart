@@ -21,26 +21,25 @@ class _HomePageState extends State<HomePage> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         // floatingActionButton: FloatingActionButton(onPressed: () async {
-        //   DatabaseReference ref = FirebaseDatabase.instance.ref("gigs/4");
+        //   DatabaseReference ref = FirebaseDatabase.instance.ref("jobs/4");
         //   await ref.set({
-        //     "name": 'InnovateTech Labs',
+        //     "name": "Neural Networks Inc.",
         //     "id": 4,
         //     "requirements": [
-        //       '2 years of experience in machine learning',
-        //       'Full-time commitment, Monday to Friday',
-        //       'Expertise in Python and deep learning frameworks',
-        //       'Strong research and problem-solving skills'
+        //       "Experience in computer vision and image processing techniques",
+        //       "Proficiency in C++ and MATLAB",
+        //       "Understanding of neural network architectures",
+        //       "Ability to adapt to new technologies and methodologies"
         //     ],
         //     "about":
-        //         "InnovateTech Labs is a leading research and development company in the field of machine learning. We're looking for skilled Machine Learning Engineers to drive our cutting-edge projects.",
+        //         "Neural Networks Inc. is dedicated to advancing the field of neural networks and deep learning. We're seeking talented individuals to join us in creating innovative solutions as Machine Learning Engineers.",
         //     "desc":
-        //         "Work on developing machine learning models for autonomous vehicles",
-        //     "color": 4294871096,
+        //         "Research and develop convolutional neural networks for image recognition tasks",
         //     "duration": "6 months",
         //     "role": "Machine Learning Engineer",
-        //     "stipend": "1500",
+        //     "stipend": "1700",
         //     "visibility": true,
-        //     "skillset": ['Machine Learning', 'Python', 'Deep Learning'],
+        //     "skillset": ["Machine Learning", "C++", "MATLAB"]
         //   });
         //   print('doneee');
         // }),
@@ -149,7 +148,8 @@ class _HomePageState extends State<HomePage> {
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.all(8),
                     children: <Widget>[
-                      for (int i = 0; i < internships.length; i++)
+                      for (int i = 0; i < internships.length && i < 5; i++)
+
                         // if (!applied.contains(internships[i].id) &&
                         //     skills.any((element) =>
                         //         internships[i].skillset.contains(element)))
@@ -227,7 +227,7 @@ class _HomePageState extends State<HomePage> {
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.all(8),
                     children: [
-                      for (int i = 0; i < gigs.length; i++)
+                      for (int i = 0; i < gigs.length && i < 5; i++)
                         // if (!applied2.contains(gigs[i].id) &&
                         //     skills.any((element) =>
                         //         gigs[i].skillset.contains(element)))
@@ -297,30 +297,46 @@ class _HomePageState extends State<HomePage> {
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.all(8),
                     children: [
-                      InternshipBox(
-                          icon: Icon(
-                            Icons.circle_rounded,
-                            size: height * 0.098,
-                            color: Color(0xFFEA4C89),
-                          ),
-                          name: 'Dribble',
-                          role: 'UI/UX Designer',
-                          type: 'Paid',
-                          colour: Color(0xFFD7C1C1)),
-                      SizedBox(
-                        width: width * 0.0509,
-                      ),
-                      InternshipBox(
-                          icon: Icon(
-                            Icons.facebook,
-                            size: height * 0.098,
-                            // color: Color(0xFFEA4C89),
-                            color: Colors.white,
-                          ),
-                          name: 'Facebook',
-                          role: 'UI/UX Designer',
-                          type: 'Paid',
-                          colour: Color(0xFF6FA5D2)),
+                      for (int i = 0; i < jobs.length && i < 5; i++)
+                        Row(
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => InternDetails(
+                                          type: 2,
+                                          id: jobs[i].id,
+                                          skillset: jobs[i].skillset,
+                                          req: jobs[i].req,
+                                          about: jobs[i].about,
+                                          duration: jobs[i].duration,
+                                          name: jobs[i].name,
+                                          money: jobs[i].stipend,
+                                          location: "Banglore, India",
+                                          role: jobs[i].role,
+                                          decs: jobs[i].desc)),
+                                ).then((value) {
+                                  setState(() {});
+                                });
+                              },
+                              child: InternshipBox(
+                                  icon: Icon(
+                                    Icons.circle_rounded,
+                                    size: height * 0.098,
+                                    color: Color(0xFFEA4C89),
+                                  ),
+                                  name: jobs[i].name,
+                                  role: gigs[i].role,
+                                  type: 'Banglore',
+                                  colour: Color(0xFFD7C1C1)),
+                            ),
+                            SizedBox(
+                              width: width * 0.0509,
+                            ),
+                          ],
+                        ),
                     ],
                   ),
                 ),
@@ -346,43 +362,38 @@ class InternshipBox extends StatelessWidget {
   final icon, name, role, type, colour;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        // navigate to jobs page.. add the details required to go to the info page...
-      },
-      child: Container(
-        height: height * 0.2435,
-        width: width * 0.4481,
-        padding: EdgeInsets.all(height * 0.018),
-        decoration: BoxDecoration(
-            color: colour, borderRadius: BorderRadius.circular(18.0)),
-        child: Column(
-          children: [
-            icon,
-            Text(
-              name,
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: height * 0.00615,
-            ),
-            Text(
-              role,
-              style: TextStyle(
-                  fontSize: height * 0.0123,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            ),
-            SizedBox(
-              height: height * 0.0098,
-            ),
-            Text(
-              type,
-              style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: height * 0.0135),
-            ),
-          ],
-        ),
+    return Container(
+      height: height * 0.2435,
+      width: width * 0.4481,
+      padding: EdgeInsets.all(height * 0.018),
+      decoration: BoxDecoration(
+          color: colour, borderRadius: BorderRadius.circular(18.0)),
+      child: Column(
+        children: [
+          icon,
+          Text(
+            name,
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          SizedBox(
+            height: height * 0.00615,
+          ),
+          Text(
+            role,
+            style: TextStyle(
+                fontSize: height * 0.0123,
+                fontWeight: FontWeight.bold,
+                color: Colors.black),
+          ),
+          SizedBox(
+            height: height * 0.0098,
+          ),
+          Text(
+            type,
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: height * 0.0135),
+          ),
+        ],
       ),
     );
   }

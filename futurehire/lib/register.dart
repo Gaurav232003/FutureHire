@@ -5,6 +5,8 @@ import 'package:futurehire/data.dart';
 import 'package:path_provider/path_provider.dart';
 import 'widgets.dart';
 import 'dart:io';
+import 'functions.dart';
+import 'skills.dart';
 
 class Register extends StatefulWidget {
   const Register();
@@ -311,7 +313,9 @@ class _RegisterState extends State<Register> {
                                               icon: Icons.cloud,
                                               text: 'Choose'),
                                         ),
-                                        SizedBox(width: 6.w,),
+                                        SizedBox(
+                                          width: 6.w,
+                                        ),
                                         if (_resume != null)
                                           Expanded(
                                             child: Text(
@@ -323,12 +327,14 @@ class _RegisterState extends State<Register> {
                                       ],
                                     ),
                                   ),
-                                  SizedBox(height: 10.h,),
+                                  SizedBox(
+                                    height: 10.h,
+                                  ),
 
                                   //   Submit button
 
                                   GestureDetector(
-                                    onTap:  _saveResume,
+                                    onTap: _saveResume,
                                     child: Container(
                                       height: height * 0.061,
                                       margin:
@@ -418,7 +424,20 @@ class _RegisterState extends State<Register> {
                               ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: Color(0xFFA3C17C)),
-                                  onPressed: () {},
+                                  onPressed: () async {
+                                    await fetchInternships();
+
+                                    registerUser(
+                                        context,
+                                        'jamalyadav@daddy.in',
+                                        '12345678',
+                                        'Sohib Jamal',
+                                        '20',
+                                        'Udhampur',
+                                        '7927355567');
+                                    name = 'Sohib Jamal';
+                                    age = '20';
+                                  },
                                   child: Text(
                                     'Submit',
                                     style: TextStyle(

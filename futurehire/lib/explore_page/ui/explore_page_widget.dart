@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../detail_view_page/ui/internship_detail_page.dart';
 
-
 Widget carouselSliders(BuildContext context) {
   return Center(
     child: Container(
@@ -13,29 +12,27 @@ Widget carouselSliders(BuildContext context) {
         height: 264.h,
         child: CarouselSlider(
           items: [
-            _slidersContainer(
-                "INTERSHIP",
-                "Get Yourself the Dream Job you deserve on a few clicks",
-                    () {
-                  Navigator.push(context, MaterialPageRoute(builder: (builder) => DetailViewPage()));
-                    },
-                const Color.fromRGBO(170, 201, 175, 100)),
-            _slidersContainer(
-                "GIGS",
-                "Get Yourself the Dream Job you deserve on a few clicks",
-                    () {},
-                const Color.fromRGBO(58, 57, 57, 100)),
+            _slidersContainer("INTERNSHIP",
+                "Get Yourself the Dream Job you deserve on a few clicks", () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (builder) => DetailViewPage(1)));
+            }, const Color.fromRGBO(170, 201, 175, 100)),
+            _slidersContainer("GIGS",
+                "Get Yourself the Dream Job you deserve on a few clicks", () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (builder) => DetailViewPage(2)));
+            }, const Color.fromRGBO(58, 57, 57, 100)),
             _slidersContainer(
                 "JOB",
                 "Get Yourself the Dream Job you deserve on a few clicks",
-                    () {},
+                () {},
                 const Color.fromRGBO(49, 126, 138, 100)),
           ],
           options: CarouselOptions(
               height: 352.h,
               initialPage: 1,
               enlargeCenterPage: true,
-              aspectRatio: 16/9,
+              aspectRatio: 16 / 9,
               enableInfiniteScroll: false),
         )),
   );
@@ -60,7 +57,7 @@ Widget _slidersContainer(
               title,
               style: TextStyle(
                   fontFamily: "poppins",
-                  fontSize: 32.sp,
+                  fontSize: 28.sp,
                   fontWeight: FontWeight.bold,
                   color: Colors.white),
             ),
@@ -128,35 +125,35 @@ Widget backImage(BuildContext context) {
         Container(
           decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/Route.png'),
-              )),
+            image: AssetImage('assets/Route.png'),
+          )),
         ),
         Container(
           decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/Character.png'),
-              )),
+            image: AssetImage('assets/Character.png'),
+          )),
         ),
         Container(
           decoration: const BoxDecoration(
               image: DecorationImage(
-                alignment: Alignment.bottomLeft,
-                image: AssetImage('assets/rocks.png'),
-              )),
+            alignment: Alignment.bottomLeft,
+            image: AssetImage('assets/rocks.png'),
+          )),
         ),
         Container(
           decoration: const BoxDecoration(
               image: DecorationImage(
-                alignment: Alignment.bottomLeft,
-                image: AssetImage('assets/Plants.png'),
-              )),
+            alignment: Alignment.bottomLeft,
+            image: AssetImage('assets/Plants.png'),
+          )),
         ),
         Container(
           decoration: const BoxDecoration(
               image: DecorationImage(
-                alignment: Alignment.bottomCenter,
-                image: AssetImage('assets/Group 88.png'),
-              )),
+            alignment: Alignment.bottomCenter,
+            image: AssetImage('assets/Group 88.png'),
+          )),
         )
       ],
     ),

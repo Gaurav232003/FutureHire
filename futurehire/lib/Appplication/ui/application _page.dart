@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:futurehire/Appplication/data/application_data.dart';
 import 'package:futurehire/Appplication/ui/application_widget.dart';
 import 'package:futurehire/data.dart';
+import 'package:futurehire/data.dart';
 
 class ApplicationPage extends StatefulWidget {
   const ApplicationPage();
@@ -12,6 +13,37 @@ class ApplicationPage extends StatefulWidget {
 }
 
 class _ApplicationPageState extends State<ApplicationPage> {
+  @override
+  void initState() {
+    for (int i = 0; i < applied.length; i++) {
+      pendingApplications.add(internships[applied[i]]);
+    }
+    for (int i = 0; i < applied2.length; i++) {
+      pendingApplications.add(internships[applied2[i]]);
+    }
+    for (int i = 0; i < applied3.length; i++) {
+      pendingApplications.add(internships[applied3[i]]);
+    }
+    for (int i = 0; i < hired1.length; i++) {
+      acceptedApplications.add(internships[hired1[i]]);
+    }
+    for (int i = 0; i < hired2.length; i++) {
+      acceptedApplications.add(internships[hired2[i]]);
+    }
+    for (int i = 0; i < hired3.length; i++) {
+      acceptedApplications.add(internships[hired3[i]]);
+    }
+    for (int i = 0; i < rejected1.length; i++) {
+      rejectedApplications.add(internships[rejected1[i]]);
+    }
+    for (int i = 0; i < rejected2.length; i++) {
+      rejectedApplications.add(internships[rejected2[i]]);
+    }
+    for (int i = 0; i < rejected3.length; i++) {
+      rejectedApplications.add(internships[rejected3[i]]);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +64,9 @@ class _ApplicationPageState extends State<ApplicationPage> {
                       child: Icon(Icons.arrow_back_ios),
                     ),
                   ),
-                  SizedBox(width: 66.w,),
+                  SizedBox(
+                    width: 66.w,
+                  ),
                   Container(
                       child: Text(
                     "Applications",
@@ -150,114 +184,111 @@ class _ApplicationPageState extends State<ApplicationPage> {
             ),
 
             //   Applied list
-           Stack(
-             children:[ Container(
-                width: MediaQuery.of(context).size.width,
-                 height: 164.h,
-                 decoration: BoxDecoration(
-                     color: Color.fromRGBO(216, 230, 228, 1),
-                   borderRadius: BorderRadius.only(topLeft: Radius.circular(30),bottomLeft: Radius.circular(30))
-                 ),
-                 child: Padding(
-                   padding: EdgeInsets.only(left: 40),
-                   child: Expanded(
-                     child: ListView.builder(
-                         scrollDirection: Axis.horizontal,
-                         itemCount: apply.length,
-                         itemBuilder: (context, index) {
-                           final applied = apply[index];
-                           return cards(
-                              applied.image,
-                               applied.role,
-                               applied.name,
-                               applied.money,
-                               applied.location,
-                               applied.skill1,
-                               applied.skill2,
-                               applied.skill3);
-                         }),
-                   ),
-                 )),
-             heading("ACCEPTED"),
-            ]
-           ),
+            Stack(children: [
+              Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 164.h,
+                  decoration: BoxDecoration(
+                      color: Color.fromRGBO(216, 230, 228, 1),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          bottomLeft: Radius.circular(30))),
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 40),
+                    child: Expanded(
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: acceptedApplications.length,
+                          itemBuilder: (context, index) {
+                            final applied = acceptedApplications[index];
+                            return cards(
+                                "internship3.png",
+                                applied.role,
+                                applied.name,
+                                applied.stipend,
+                                'Banglore',
+                                applied.skillset[0],
+                                applied.skillset[1],
+                                applied.skillset[2]);
+                          }),
+                    ),
+                  )),
+              heading("ACCEPTED"),
+            ]),
 
             SizedBox(
               height: 25.h,
             ),
 
             //  Pending list
-            Stack(
-              children: [Container(
+            Stack(children: [
+              Container(
                   width: MediaQuery.of(context).size.width,
                   height: 164.h,
                   decoration: BoxDecoration(
                       color: Color.fromRGBO(216, 230, 228, 1),
-                      borderRadius: BorderRadius.only(topLeft: Radius.circular(30),bottomLeft: Radius.circular(30))
-                  ),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          bottomLeft: Radius.circular(30))),
                   child: Padding(
                     padding: EdgeInsets.only(left: 40),
                     child: Expanded(
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
-                          itemCount: accepting.length,
+                          itemCount: pendingApplications.length,
                           itemBuilder: (context, index) {
-                            final accept = accepting[index];
+                            final accept = pendingApplications[index];
                             return cards(
-                               accept.image,
+                                "internship3.png",
                                 accept.role,
                                 accept.name,
-                                accept.money,
-                                accept.location,
-                                accept.skill1,
-                                accept.skill2,
-                                accept.skill3);
+                                accept.stipend,
+                                'Banglore',
+                                accept.skillset[0],
+                                accept.skillset[1],
+                                accept.skillset[2]);
                           }),
                     ),
                   )),
-                heading("PENDING"),
-
-    ]
-            ),
+              heading("PENDING"),
+            ]),
 
             SizedBox(
               height: 25.h,
             ),
 
             //   Rejected list
-            Stack(
-              children:[
-                Container(
+            Stack(children: [
+              Container(
                   width: MediaQuery.of(context).size.width,
                   height: 164.h,
                   decoration: BoxDecoration(
                       color: Color.fromRGBO(216, 230, 228, 1),
-                      borderRadius: BorderRadius.only(topLeft: Radius.circular(30),bottomLeft: Radius.circular(30))
-                  ),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          bottomLeft: Radius.circular(30))),
                   child: Padding(
                     padding: EdgeInsets.only(left: 40),
                     child: Expanded(
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
-                          itemCount: rejecting.length,
+                          itemCount: rejectedApplications.length,
                           itemBuilder: (context, index) {
-                            final reject = rejecting[index];
+                            final reject = rejectedApplications[index];
                             return cards(
-                                reject.image,
+                                "internship3.png",
                                 reject.role,
                                 reject.name,
-                                reject.money,
-                                reject.location,
-                                reject.skill1,
-                                reject.skill2,
-                                reject.skill3);
+                                reject.stipend,
+                                'Banglore',
+                                reject.skillset[0],
+                                reject.skillset[1],
+                                reject.skillset[2]);
                           }),
                     ),
                   )),
-                heading("REJECTED"),
-
-    ]
-            )
+              heading("REJECTED"),
+            ])
           ],
         ),
       ),

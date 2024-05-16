@@ -97,15 +97,24 @@ class _SkillsPageState extends State<SkillsPage> {
                   SizedBox(
                     height: height * 0.02,
                   ),
-
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      'User Skills:',
-                      style: TextStyle(
-                          fontSize: 20.0, fontWeight: FontWeight.bold),
+                  if (skills.isEmpty)
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        'Select your skills from the above menu',
+                        style: TextStyle(
+                            fontSize: 20.0, fontWeight: FontWeight.bold),
+                      ),
                     ),
-                  ),
+                  if (skills.isNotEmpty)
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        'User Skills:',
+                        style: TextStyle(
+                            fontSize: 20.0, fontWeight: FontWeight.bold),
+                      ),
+                    ),
                   SizedBox(
                     height: 240.h,
                     child: GridView.builder(

@@ -7,6 +7,10 @@ String age = '';
 List<Widget> displaySkills = [];
 List<String> jobBoxColor = [];
 
+List<Details> acceptedApplications = [];
+List<Details> pendingApplications = [];
+List<Details> rejectedApplications = [];
+
 int hired = 0, noapplied = 0, accepted = 0;
 
 class Details {
@@ -32,6 +36,12 @@ List<Details> internships = [];
 List<Details> gigs = [];
 List<Details> jobs = [];
 
+List<int> hired1 = [];
+List<int> hired2 = [];
+List<int> hired3 = [];
+List<int> rejected1 = [];
+List<int> rejected2 = [];
+List<int> rejected3 = [];
 List<int> applied = [];
 List<int> applied2 = [];
 List<int> applied3 = [];
