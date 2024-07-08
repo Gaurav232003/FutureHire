@@ -2,6 +2,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:futurehire/data.dart';
 import 'package:futurehire/Screens/internDetails.dart';
+import 'package:go_router/go_router.dart';
 import 'profilePage.dart';
 import '../data.dart';
 import 'internDetails.dart';
@@ -99,10 +100,11 @@ class _HomePageState extends State<HomePage> {
                             ),
                           );
                         }
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Profile()),
-                        );
+                        context.push('/profile');
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(builder: (context) => Profile()),
+                        // );
                       },
                       child: CircleAvatar(
                         radius: height * 0.0369,
@@ -127,11 +129,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Internships()),
-                        );
+                        context.go('/internships');
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //       builder: (context) => Internships()),
+                        // );
                       },
                       child: Row(
                         children: [Text('View All'), Icon(Icons.arrow_forward)],
@@ -143,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                   height: height * 0.0184,
                 ),
                 Container(
-                  height: height * 0.1722,
+                  height: height * 0.18,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.all(8),
@@ -292,7 +295,7 @@ class _HomePageState extends State<HomePage> {
                   height: height * 0.0184,
                 ),
                 Container(
-                  height: height * 0.25,
+                  height: height * 0.3,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.all(8),

@@ -3,6 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:futurehire/data.dart';
+import 'package:go_router/go_router.dart';
 import '../widgets.dart';
 import 'register.dart';
 import '../Screens/BottomBar.dart';
@@ -86,14 +87,15 @@ class Login extends StatelessWidget {
                       // int x = await fetchSkillsFromDatabase();
                       // int y = await fetchInternships();
                       await fetchData();
-                      Navigator.pushReplacement(
-                        context,
-                        new MaterialPageRoute(
-                          builder: (BuildContext context) => BottomBar(
-                            si: 0,
-                          ),
-                        ),
-                      );
+                      context.go('/home');
+                      // Navigator.pushReplacement(
+                      //   context,
+                      //   new MaterialPageRoute(
+                      //     builder: (BuildContext context) => BottomBar(
+                      //       si: 0,
+                      //     ),
+                      //   ),
+                      // );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF4CA3B6),

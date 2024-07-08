@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:futurehire/Screens/skills.dart';
 import 'package:futurehire/Screens/skills_page/bloc/skills_bloc.dart';
+import 'Routing/app_router.dart';
 import 'auth/login.dart';
 import 'data.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
@@ -65,14 +66,10 @@ class MyApp extends StatelessWidget {
     print('w');
     print(width);
     // return Login();
-    return Login();
-
-    // return MaterialApp(
-    //   theme: ThemeData.dark().copyWith(
-    //     primaryColor: const Color(0xFF0A0E21),
-    //     scaffoldBackgroundColor: const Color(0xFF0A0E21),
-    //   ),
-    //   home: Login(),
-    // );
+    return MaterialApp.router(
+      routerDelegate: appRouter.routerDelegate,
+      routeInformationParser: appRouter.routeInformationParser,
+      routeInformationProvider: appRouter.routeInformationProvider,
+    );
   }
 }

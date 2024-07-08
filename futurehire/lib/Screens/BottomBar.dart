@@ -29,6 +29,7 @@ class _BottomBarState extends State<BottomBar> {
     //Skills(),
     SkillsPage(),
     ExplorePage(),
+    // Scaffold(),
     NoticePage()
 
     // Add more screens here
